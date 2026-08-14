@@ -1,0 +1,27 @@
+# .NET Build Output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Database / LocalDB files
+*.mdf
+*.ldf
+
+# Node / React Build Output
+node_modules/
+dist/
+.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+Desktop.ini
