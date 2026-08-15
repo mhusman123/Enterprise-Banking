@@ -66,9 +66,12 @@ const LandingPage: React.FC = () => {
             <Button size="lg" className="w-full sm:w-auto px-8" onClick={() => navigate('/register')}>
               Access Portal Now <ArrowRight size={18} />
             </Button>
-            <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 text-white border-slate-700 hover:bg-slate-800" onClick={() => navigate('/login')}>
+            <button 
+              onClick={() => navigate('/login')}
+              className="w-full sm:w-auto px-8 py-3 rounded-xl bg-slate-800/90 text-white font-bold border-2 border-slate-700 hover:border-blue-400 hover:bg-slate-800 hover:text-blue-300 transition-all shadow-lg active:scale-[0.99] cursor-pointer"
+            >
               Explore Demo Workspace
-            </Button>
+            </button>
           </div>
 
           {/* Compliance Ticker */}
