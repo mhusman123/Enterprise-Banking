@@ -137,13 +137,13 @@ export const SidebarNav: React.FC<{ isMobileOpen?: boolean; onCloseMobile?: () =
           <div className="flex items-center gap-3">
             <div className="relative">
               <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow">
-                JD
+                MU
               </div>
               <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-slate-900"></span>
             </div>
             <div className="overflow-hidden">
-              <p className="text-sm font-semibold text-white truncate">John Doe</p>
-              <p className="text-xs text-slate-400 truncate">Account #4892</p>
+              <p className="text-sm font-semibold text-white truncate">Muhammad Usman</p>
+              <p className="text-xs text-slate-400 truncate">PK36 HABB 4892</p>
             </div>
           </div>
           <button 

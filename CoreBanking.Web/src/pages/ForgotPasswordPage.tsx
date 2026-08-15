@@ -46,7 +46,7 @@ const ForgotPasswordPage: React.FC = () => {
               <Input
                 label="Registered Business Email"
                 type="email"
-                placeholder="john.doe@company.com"
+                placeholder="usman@company.pk"
                 icon={<Mail size={16} />}
                 required
               />

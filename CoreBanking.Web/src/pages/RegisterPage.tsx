@@ -36,14 +36,14 @@ const RegisterPage: React.FC = () => {
                 <Input
                   label="First Name"
                   type="text"
-                  placeholder="John"
+                  placeholder="Muhammad"
                   icon={<User size={16} />}
                   required
                 />
                 <Input
                   label="Last Name"
                   type="text"
-                  placeholder="Doe"
+                  placeholder="Usman"
                   icon={<User size={16} />}
                   required
                 />
@@ -52,15 +52,15 @@ const RegisterPage: React.FC = () => {
               <Input
                 label="Corporate Email Address"
                 type="email"
-                placeholder="john.doe@company.com"
+                placeholder="usman@company.pk"
                 icon={<Mail size={16} />}
                 required
               />
 
               <Input
-                label="Phone Number"
+                label="Phone Number (Pakistan)"
                 type="tel"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+92 (300) 123-4567"
                 icon={<Phone size={16} />}
                 required
               />
@@ -117,7 +117,7 @@ const RegisterPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 text-slate-400 text-xs">
-          &copy; {new Date().getFullYear()} CoreBank Technologies. FDIC Insured.
+          &copy; {new Date().getFullYear()} CoreBank Technologies. State Bank of Pakistan (SBP) Regulated.
         </div>
       </div>
     </div>

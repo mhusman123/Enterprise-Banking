@@ -26,12 +26,12 @@ const AccountsPage: React.FC = () => {
     { 
       id: 'ACC-101', 
       type: 'Checking', 
-      name: 'Corporate Premier Checking', 
+      name: 'Corporate Premier Checking (HBL)', 
       accountNumber: '4892-1092-8841-4892', 
-      iban: 'US89 CBKP 4892 1092 8841 4892',
-      balance: 148920.50, 
-      currency: 'USD',
-      apy: '1.25%',
+      iban: 'PK36 HABB 0001 2345 6789 4892',
+      balance: 14892050.50, 
+      currency: 'PKR',
+      apy: '11.25%',
       status: 'Active', 
       icon: CreditCard,
       color: 'bg-blue-50 text-blue-600 border-blue-200'
@@ -39,12 +39,12 @@ const AccountsPage: React.FC = () => {
     { 
       id: 'ACC-102', 
       type: 'Savings', 
-      name: 'High-Yield Treasury Reserve', 
+      name: 'Meezan High-Yield Islamic Savings', 
       accountNumber: '7120-4491-0029-7120', 
-      iban: 'US89 CBKP 7120 4491 0029 7120',
-      balance: 85400.00, 
-      currency: 'USD',
-      apy: '5.20%',
+      iban: 'PK68 MEZN 0010 0289 4491 7120',
+      balance: 8540000.00, 
+      currency: 'PKR',
+      apy: '15.20%',
       status: 'Active', 
       icon: PiggyBank,
       color: 'bg-emerald-50 text-emerald-600 border-emerald-200'
@@ -52,12 +52,12 @@ const AccountsPage: React.FC = () => {
     { 
       id: 'ACC-103', 
       type: 'Investment', 
-      name: 'Money Market Liquidity', 
+      name: 'Allied Money Market Liquidity (ABL)', 
       accountNumber: '9011-8830-1922-9011', 
-      iban: 'US89 CBKP 9011 8830 1922 9011',
-      balance: 45000.25, 
-      currency: 'USD',
-      apy: '4.85%',
+      iban: 'PK12 ABLP 0005 8830 1922 9011',
+      balance: 4500025.00, 
+      currency: 'PKR',
+      apy: '14.85%',
       status: 'Active', 
       icon: Briefcase,
       color: 'bg-purple-50 text-purple-600 border-purple-200'
@@ -65,12 +65,12 @@ const AccountsPage: React.FC = () => {
     { 
       id: 'ACC-104', 
       type: 'FixedDeposit', 
-      name: '12-Month Fixed Yield Term', 
+      name: '12-Month Mahana Amdani Term Deposit (MCB)', 
       accountNumber: '3310-9941-2018-3310', 
-      iban: 'US89 CBKP 3310 9941 2018 3310',
-      balance: 50000.00, 
-      currency: 'USD',
-      apy: '5.60%',
+      iban: 'PK90 MCBB 0022 9941 2018 3310',
+      balance: 5000000.00, 
+      currency: 'PKR',
+      apy: '16.60%',
       status: 'Frozen', 
       icon: Landmark,
       color: 'bg-amber-50 text-amber-600 border-amber-200'
@@ -92,8 +92,8 @@ const AccountsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Institutional Bank Accounts</h1>
-          <p className="text-xs text-slate-500 mt-1">Multi-currency liquidity, checking & treasury yield reserves</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Institutional Bank Accounts (Pakistan)</h1>
+          <p className="text-xs text-slate-500 mt-1">Pakistani Rupee (PKR) liquidity, SBP regulated checking & Islamic savings</p>
         </div>
         <Button onClick={() => setShowCreateModal(true)}>
           <Plus size={16} />
@@ -159,7 +159,7 @@ const AccountsPage: React.FC = () => {
                   </div>
                   <div className="text-right">
                     <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg border border-emerald-200/60">
-                      <Sparkles size={12} /> {acc.apy} APY
+                      <Sparkles size={12} /> {acc.apy} Profit Rate
                     </span>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ const AccountsPage: React.FC = () => {
                     <span className="font-semibold text-slate-800">{acc.accountNumber}</span>
                   </div>
                   <div className="flex items-center justify-between text-slate-600 pt-1 border-t border-slate-200/50">
-                    <span className="text-slate-400 font-sans">IBAN Identifier:</span>
+                    <span className="text-slate-400 font-sans">Pakistani IBAN:</span>
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-slate-800">{acc.iban}</span>
                       <button 
@@ -189,7 +189,7 @@ const AccountsPage: React.FC = () => {
                 <div className="flex items-baseline justify-between pt-4 border-t border-slate-100 mb-5">
                   <div>
                     <span className="text-xs font-semibold text-slate-400 block uppercase tracking-wider">Available Balance</span>
-                    <span className="text-2xl font-extrabold text-slate-900 tracking-tight">${acc.balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                    <span className="text-2xl font-extrabold text-slate-900 tracking-tight">Rs. {acc.balance.toLocaleString('en-PK', { minimumFractionDigits: 2 })}</span>
                   </div>
                   <span className="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">
                     {acc.currency}
@@ -227,14 +227,14 @@ const AccountsPage: React.FC = () => {
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Account Type</label>
                 <select className="w-full rounded-xl border border-slate-200 bg-white p-2.5 text-sm font-medium focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none">
-                  <option value="Savings">Savings Reserve (5.20% APY)</option>
-                  <option value="Checking">Corporate Checking (1.25% APY)</option>
-                  <option value="FixedDeposit">Fixed Term Deposit (5.60% APY)</option>
+                  <option value="Savings">Meezan Savings Reserve (15.20% Profit Rate)</option>
+                  <option value="Checking">HBL Corporate Checking (11.25% Profit Rate)</option>
+                  <option value="FixedDeposit">MCB Fixed Term Deposit (16.60% Profit Rate)</option>
                 </select>
               </div>
 
-              <Input label="Initial Deposit Amount ($)" placeholder="e.g. 5000.00" type="number" />
-              <Input label="Account Label / Business Purpose" placeholder="e.g. Payroll Reserve" />
+              <Input label="Initial Deposit Amount (Rs.)" placeholder="e.g. 500000.00" type="number" />
+              <Input label="Account Label / Business Purpose" placeholder="e.g. Lahore Office Payroll" />
             </div>
 
             <div className="flex items-center gap-3 pt-3">

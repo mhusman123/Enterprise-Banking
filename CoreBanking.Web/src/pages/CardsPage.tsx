@@ -23,26 +23,26 @@ const CardsPage: React.FC = () => {
     {
       id: 'CRD-9011',
       name: 'Corporate Black Obsidian',
-      holder: 'JOHN DOE',
+      holder: 'MUHAMMAD USMAN',
       number: '4892 •••• •••• 9011',
       cvv: '849',
       exp: '08/29',
-      type: 'Visa Infinite Corporate',
-      limit: 50000,
-      used: 12450.80,
+      type: 'PayPak / Visa Infinite Corporate',
+      limit: 5000000,
+      used: 1245080.00,
       gradient: 'from-slate-950 via-slate-900 to-slate-800 border-slate-700',
       textColor: 'text-amber-400'
     },
     {
       id: 'CRD-4412',
       name: 'Executive Emerald Debit',
-      holder: 'JOHN DOE',
+      holder: 'MUHAMMAD USMAN',
       number: '5219 •••• •••• 4412',
       cvv: '102',
       exp: '11/28',
-      type: 'Mastercard Debit',
-      limit: 25000,
-      used: 3890.00,
+      type: 'PayPak Debit',
+      limit: 2500000,
+      used: 389000.00,
       gradient: 'from-emerald-950 via-teal-900 to-emerald-900 border-teal-700',
       textColor: 'text-emerald-300'
     }
@@ -55,8 +55,8 @@ const CardsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Payment Cards & Security</h1>
-          <p className="text-xs text-slate-500 mt-1">Virtual & physical debit/credit card controls, limits & PIN management</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Payment Cards & Security (Pakistan)</h1>
+          <p className="text-xs text-slate-500 mt-1">PayPak & UnionPay / Visa debit controls, limits & PIN management</p>
         </div>
         <Button size="sm">
           <Plus size={16} /> Issue New Virtual Card
@@ -86,7 +86,7 @@ const CardsPage: React.FC = () => {
 
             <div className="relative z-10 flex items-center justify-between">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">CoreBank Corporate</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 block">CoreBank Corporate (SBP)</span>
                 <span className={`text-xs font-extrabold tracking-wider ${currentCard.textColor}`}>{currentCard.type}</span>
               </div>
               <Wifi size={24} className="text-slate-300/80 rotate-90" />
@@ -165,8 +165,8 @@ const CardsPage: React.FC = () => {
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-xs font-semibold mb-1 text-slate-600">
-                  <span>Spent This Month (${currentCard.used.toLocaleString()})</span>
-                  <span className="font-bold text-slate-900">${currentCard.limit.toLocaleString()} Limit</span>
+                  <span>Spent This Month (Rs. {currentCard.used.toLocaleString()})</span>
+                  <span className="font-bold text-slate-900">Rs. {currentCard.limit.toLocaleString()} Limit</span>
                 </div>
                 <div className="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
                   <div 
@@ -180,12 +180,12 @@ const CardsPage: React.FC = () => {
                 <div>
                   <span className="text-slate-400 block uppercase tracking-wider">Remaining Allowance</span>
                   <span className="text-base font-extrabold text-emerald-600">
-                    ${(currentCard.limit - currentCard.used).toLocaleString()}
+                    Rs. {(currentCard.limit - currentCard.used).toLocaleString()}
                   </span>
                 </div>
                 <div>
-                  <span className="text-slate-400 block uppercase tracking-wider">Daily ATM Withdrawal Limit</span>
-                  <span className="text-base font-bold text-slate-800">$2,500.00</span>
+                  <span className="text-slate-400 block uppercase tracking-wider">Daily 1-Link ATM Limit</span>
+                  <span className="text-base font-bold text-slate-800">Rs. 250,000.00</span>
                 </div>
               </div>
             </div>

@@ -59,7 +59,7 @@ const LoginPage: React.FC = () => {
               <Input
                 label="Corporate Email Address"
                 type="email"
-                placeholder="john.doe@company.com"
+                placeholder="usman@company.pk"
                 icon={<Mail size={16} />}
                 required
               />

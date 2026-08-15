@@ -18,10 +18,10 @@ const SupportPage: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const faqs = [
-    { q: "What is the procedure for initiating international SWIFT wire transfers?", a: "Navigate to Transactions -> New Transfer -> Wire Transfer. Input the beneficiary's international IBAN and BIC/SWIFT code. High-value wires over $100,000 undergo automated compliance review and settle within 1-2 business days." },
-    { q: "How are interest yields calculated on High-Yield Treasury Savings accounts?", a: "Yields are accrued daily based on the end-of-day ledger balance and posted automatically on the 1st of every month. Interest rates follow the Federal Benchmark APY." },
-    { q: "What security measures protect corporate accounts against unauthorized access?", a: "All sessions utilize 256-Bit SSL encryption, multi-factor authentication (MFA), hardware security module (HSM) key rotation, and automated machine learning anomaly detection for out-of-pattern transfers." },
-    { q: "How do I request spending limit increases for corporate cards?", a: "Corporate card managers can adjust limits instantly via the Cards tab, or submit a request directly through this support desk for permanent facility upgrades." },
+    { q: "What is the procedure for Raast Instant Payments and SWIFT wire transfers?", a: "Navigate to Transactions -> New Transfer -> Raast / Wire Transfer. Input the beneficiary's Pakistani IBAN (e.g., PK36 HABB 0001 2345 6789 0102) or registered Raast ID number. Wires over Rs. 10,000,000 undergo automated SBP compliance verification and settle instantly." },
+    { q: "How are profit yields calculated on Meezan High-Yield Islamic Savings accounts?", a: "Profit yields are accrued daily based on the Mudarabah profit-sharing framework and declared monthly by the Shariah Board, deposited automatically on the 1st of every calendar month." },
+    { q: "What security measures protect Pakistani corporate accounts against fraud?", a: "All sessions enforce State Bank of Pakistan (SBP) cybersecurity guidelines, 256-Bit SSL encryption, multi-factor CNIC verification, 1-Link HSM key rotation, and automated ML anomaly detection." },
+    { q: "How do I request daily 1-Link ATM or POS card spending limit upgrades?", a: "Card managers can adjust limits instantly via the Cards tab, or submit a request directly through this support desk for permanent facility upgrades." },
   ];
 
   return (
@@ -31,17 +31,17 @@ const SupportPage: React.FC = () => {
         <div className="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-blue-600/20 rounded-full blur-3xl"></div>
         <div className="relative z-10 max-w-2xl mx-auto space-y-3">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold border border-blue-500/30">
-            <ShieldCheck size={14} /> 24/7 Priority Financial Desk
+            <ShieldCheck size={14} /> 24/7 SBP Regulated Financial Desk
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">How can we assist your business today?</h1>
-          <p className="text-sm text-slate-300">Search our knowledge base or open a direct ticket with our senior banking officers.</p>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">How can we assist your business in Pakistan?</h1>
+          <p className="text-sm text-slate-300">Search our knowledge base or open a direct ticket with our senior banking officers in Karachi & Lahore.</p>
         </div>
 
         <div className="relative max-w-xl mx-auto z-10 pt-2">
           <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input 
             type="text"
-            placeholder="Search transfer limits, wire procedures, APY yields..."
+            placeholder="Search Raast limits, IBAN wire procedures, profit rates..."
             className="w-full rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 py-3.5 pl-12 pr-4 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
           />
         </div>
@@ -53,9 +53,9 @@ const SupportPage: React.FC = () => {
           <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
             <Phone size={22} />
           </div>
-          <h3 className="font-extrabold text-slate-900 text-base">Priority Phone Desk</h3>
-          <p className="text-xs text-slate-500">24/7 Institutional Support Line</p>
-          <p className="text-sm font-bold text-blue-600 font-mono">+1 (800) 555-CORE-BANK</p>
+          <h3 className="font-extrabold text-slate-900 text-base">Priority Helpline (Pakistan)</h3>
+          <p className="text-xs text-slate-500">24/7 Institutional Support Desk</p>
+          <p className="text-sm font-bold text-blue-600 font-mono">0800-26732 / +92 (21) 111-267-326</p>
         </Card>
 
         <Card className="text-center space-y-3 hover:border-slate-300 transition-all cursor-pointer">
@@ -64,7 +64,7 @@ const SupportPage: React.FC = () => {
           </div>
           <h3 className="font-extrabold text-slate-900 text-base">Official Banking Desk</h3>
           <p className="text-xs text-slate-500">Guaranteed response within 4 hours</p>
-          <p className="text-sm font-bold text-emerald-600 font-mono">support@corebank.com</p>
+          <p className="text-sm font-bold text-emerald-600 font-mono">support@corebank.pk</p>
         </Card>
 
         <Card className="text-center space-y-3 hover:border-slate-300 transition-all cursor-pointer">
@@ -118,11 +118,11 @@ const SupportPage: React.FC = () => {
             ) : (
               <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}>
                 <div className="grid grid-cols-2 gap-3">
-                  <Input label="First Name" defaultValue="John" required />
-                  <Input label="Last Name" defaultValue="Doe" required />
+                  <Input label="First Name" defaultValue="Muhammad" required />
+                  <Input label="Last Name" defaultValue="Usman" required />
                 </div>
-                <Input label="Corporate Email" type="email" defaultValue="john.doe@company.com" required />
-                <Input label="Subject / Inquiry Topic" placeholder="e.g. SWIFT Wire Limit Upgrade" required />
+                <Input label="Corporate Email" type="email" defaultValue="usman@company.pk" required />
+                <Input label="Subject / Inquiry Topic" placeholder="e.g. Raast Limit Upgrade Request" required />
 
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Detailed Message</label>

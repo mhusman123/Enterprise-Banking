@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { 
-  Landmark, 
   Calculator, 
   Clock, 
-  DollarSign, 
   Sparkles, 
   Calendar,
   FileText
@@ -12,9 +10,9 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 
 const LoansPage: React.FC = () => {
-  const [loanAmount, setLoanAmount] = useState(25000);
+  const [loanAmount, setLoanAmount] = useState(2500000);
   const [termMonths, setTermMonths] = useState(36);
-  const [interestRate] = useState(5.5); // Annual interest rate
+  const [interestRate] = useState(14.5); // KIBOR benchmark rate
 
   // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
   const monthlyRate = interestRate / 100 / 12;
@@ -28,26 +26,26 @@ const LoansPage: React.FC = () => {
   const activeLoans = [
     {
       id: 'LN-88410',
-      title: 'Commercial Equipment Financing',
-      facility: 'Term Loan A',
-      principal: 150000,
-      remaining: 82450.00,
-      nextEmiAmount: 3850.00,
+      title: 'Commercial Industrial Machinery Financing',
+      facility: 'Term Financing A',
+      principal: 15000000,
+      remaining: 8245000.00,
+      nextEmiAmount: 385000.00,
       dueDate: 'Sep 01, 2026',
-      rate: '4.75% Fixed',
+      rate: '14.75% KIBOR + 1%',
       progress: 45,
       paidInstallments: 18,
       totalInstallments: 48,
     },
     {
       id: 'LN-99214',
-      title: 'Corporate Real Estate Expansion',
+      title: 'Commercial Real Estate Plaza Financing',
       facility: 'Commercial Mortgage',
-      principal: 500000,
-      remaining: 380000.00,
-      nextEmiAmount: 5200.00,
+      principal: 50000000,
+      remaining: 38000000.00,
+      nextEmiAmount: 520000.00,
       dueDate: 'Sep 15, 2026',
-      rate: '5.25% Fixed',
+      rate: '15.25% KIBOR + 1.2%',
       progress: 24,
       paidInstallments: 12,
       totalInstallments: 60,
@@ -55,10 +53,10 @@ const LoansPage: React.FC = () => {
   ];
 
   const repaymentSchedule = [
-    { no: 1, due: 'Sep 01, 2026', principal: '$3,180.00', interest: '$670.00', total: '$3,850.00', status: 'Pending' },
-    { no: 2, due: 'Oct 01, 2026', principal: '$3,195.00', interest: '$655.00', total: '$3,850.00', status: 'Upcoming' },
-    { no: 3, due: 'Nov 01, 2026', principal: '$3,210.00', interest: '$640.00', total: '$3,850.00', status: 'Upcoming' },
-    { no: 4, due: 'Dec 01, 2026', principal: '$3,225.00', interest: '$625.00', total: '$3,850.00', status: 'Upcoming' },
+    { no: 1, due: 'Sep 01, 2026', principal: 'Rs. 318,000.00', interest: 'Rs. 67,000.00', total: 'Rs. 385,000.00', status: 'Pending' },
+    { no: 2, due: 'Oct 01, 2026', principal: 'Rs. 319,500.00', interest: 'Rs. 65,500.00', total: 'Rs. 385,000.00', status: 'Upcoming' },
+    { no: 3, due: 'Nov 01, 2026', principal: 'Rs. 321,000.00', interest: 'Rs. 64,000.00', total: 'Rs. 385,000.00', status: 'Upcoming' },
+    { no: 4, due: 'Dec 01, 2026', principal: 'Rs. 322,500.00', interest: 'Rs. 62,500.00', total: 'Rs. 385,000.00', status: 'Upcoming' },
   ];
 
   return (
@@ -66,15 +64,15 @@ const LoansPage: React.FC = () => {
       {/* Header Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Loans & Credit Facilities</h1>
-          <p className="text-xs text-slate-500 mt-1">Corporate credit lines, commercial mortgages & EMI repayment schedules</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Loans & Commercial Financing (Pakistan)</h1>
+          <p className="text-xs text-slate-500 mt-1">SBP compliant credit lines, KIBOR benchmarked mortgages & EMI schedules</p>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="outline" size="sm">
-            <FileText size={15} /> Download Credit Agreement
+            <FileText size={15} /> Download Agreement
           </Button>
           <Button size="sm">
-            <Sparkles size={15} /> Apply For New Line
+            <Sparkles size={15} /> Apply For Credit Line
           </Button>
         </div>
       </div>
@@ -84,22 +82,22 @@ const LoansPage: React.FC = () => {
         <Card className="flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Principal Drawn</span>
-            <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-              <Landmark size={18} />
+            <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">
+              PKR
             </div>
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">$650,000.00</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 65,000,000</h2>
           <span className="text-xs text-slate-400 mt-2">Across 2 Active Facilities</span>
         </Card>
 
         <Card className="flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Remaining Balance</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
-              <DollarSign size={18} />
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs">
+              PKR
             </div>
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">$462,450.00</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 46,245,000</h2>
           <span className="text-xs text-emerald-600 font-semibold mt-2">29% Total Debt Repaid</span>
         </Card>
 
@@ -110,10 +108,10 @@ const LoansPage: React.FC = () => {
               <Calendar size={18} />
             </div>
           </div>
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">$9,050.00</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Rs. 905,000</h2>
           <div className="flex items-center justify-between text-xs text-slate-300 mt-2 pt-2 border-t border-slate-700">
             <span>Due Sep 01, 2026</span>
-            <span className="text-emerald-400 font-bold">Auto-Debit On</span>
+            <span className="text-emerald-400 font-bold">1-Link Auto-Debit On</span>
           </div>
         </Card>
       </div>
@@ -143,15 +141,15 @@ const LoansPage: React.FC = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-5 text-xs">
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Original Principal</span>
-                    <span className="text-sm font-bold text-slate-800">${loan.principal.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-slate-800">Rs. {loan.principal.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Remaining Principal</span>
-                    <span className="text-sm font-bold text-slate-900">${loan.remaining.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-slate-900">Rs. {loan.remaining.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Monthly EMI</span>
-                    <span className="text-sm font-bold text-blue-600">${loan.nextEmiAmount.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-blue-600">Rs. {loan.nextEmiAmount.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Next Due Date</span>
@@ -187,7 +185,7 @@ const LoansPage: React.FC = () => {
                 <Calculator size={18} />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">Commercial EMI Simulator</h3>
+                <h3 className="text-base font-bold text-white">Commercial EMI Simulator (PKR)</h3>
                 <p className="text-xs text-slate-400">Instant credit line cost preview</p>
               </div>
             </div>
@@ -196,13 +194,13 @@ const LoansPage: React.FC = () => {
               <div>
                 <div className="flex justify-between text-xs font-semibold mb-1 text-slate-300">
                   <span>Facility Amount</span>
-                  <span className="text-blue-400 font-bold">${loanAmount.toLocaleString()}</span>
+                  <span className="text-blue-400 font-bold">Rs. {loanAmount.toLocaleString()}</span>
                 </div>
                 <input
                   type="range"
-                  min="5000"
-                  max="100000"
-                  step="5000"
+                  min="500000"
+                  max="10000000"
+                  step="500000"
                   value={loanAmount}
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
                   className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
@@ -226,21 +224,21 @@ const LoansPage: React.FC = () => {
 
               <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 space-y-2 text-xs">
                 <div className="flex justify-between text-slate-400">
-                  <span>Interest Rate (Benchmark)</span>
+                  <span>KIBOR Interest Rate</span>
                   <span className="text-emerald-400 font-semibold">{interestRate}% p.a.</span>
                 </div>
                 <div className="flex justify-between text-slate-400">
                   <span>Total Interest Payable</span>
-                  <span className="text-white font-semibold">${totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+                  <span className="text-white font-semibold">Rs. {totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
                 </div>
                 <div className="flex justify-between text-slate-400 pt-2 border-t border-slate-700">
                   <span className="font-bold text-white">Estimated Monthly EMI</span>
-                  <span className="text-lg font-extrabold text-teal-400">${emi.toLocaleString()} / mo</span>
+                  <span className="text-lg font-extrabold text-teal-400">Rs. {emi.toLocaleString()} / mo</span>
                 </div>
               </div>
 
               <Button className="w-full" size="md">
-                Apply For ${loanAmount.toLocaleString()} Credit Line
+                Apply For Rs. {loanAmount.toLocaleString()} Credit Line
               </Button>
             </div>
           </Card>
@@ -252,7 +250,7 @@ const LoansPage: React.FC = () => {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h3 className="text-lg font-bold text-slate-900">Upcoming Repayment Schedule</h3>
-            <p className="text-xs text-slate-500">Amortization installments for Equipment Financing (LN-88410)</p>
+            <p className="text-xs text-slate-500">Amortization installments for Machinery Financing (LN-88410)</p>
           </div>
         </div>
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   Users, 
-  DollarSign, 
   FileText, 
   Search, 
   Server, 
@@ -59,12 +58,12 @@ const AdminPage: React.FC = () => {
         <Card className="flex flex-col justify-between">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Managed Deposits</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <DollarSign size={18} />
+            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
+              PKR
             </div>
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">$342.8M</h2>
-          <span className="text-xs text-slate-400 mt-2">100% Reserve Ratio</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 34.28B</h2>
+          <span className="text-xs text-slate-400 mt-2">100% Statutory Liquidity Ratio (SBP)</span>
         </Card>
 
         <Card className="flex flex-col justify-between">
@@ -88,7 +87,7 @@ const AdminPage: React.FC = () => {
           <h2 className="text-3xl font-extrabold text-white tracking-tight">99.99%</h2>
           <div className="flex items-center justify-between text-xs text-slate-300 mt-2 pt-2 border-t border-slate-700">
             <span>Latency: 14ms</span>
-            <span className="text-emerald-400 font-bold">All Services Healthy</span>
+            <span className="text-emerald-400 font-bold">Raast Node Healthy</span>
           </div>
         </Card>
       </div>
@@ -103,7 +102,7 @@ const AdminPage: React.FC = () => {
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder="Search user, account or SSN..."
+              placeholder="Search CNIC, account or title..."
               className="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
             />
           </div>

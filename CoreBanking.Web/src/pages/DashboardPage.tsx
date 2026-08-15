@@ -8,8 +8,7 @@ import {
   ShieldCheck, 
   Sparkles,
   ChevronRight,
-  Filter,
-  DollarSign
+  Filter
 } from 'lucide-react';
 import Card from '../components/Card';
 import Button from '../components/Button';
@@ -20,17 +19,17 @@ const DashboardPage: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('This Month');
 
   const accountCards = [
-    { id: '1', name: 'Corporate Premier Checking', number: '•••• 4892', balance: 148920.50, type: 'Checking', status: 'Active', growth: '+4.2%' },
-    { id: '2', name: 'High-Yield Treasury Savings', number: '•••• 7120', balance: 85400.00, type: 'Savings', status: 'Active', growth: '+5.1%' },
-    { id: '3', name: 'Money Market Liquidity', number: '•••• 9011', balance: 45000.25, type: 'Investment', status: 'Active', growth: '+3.8%' },
+    { id: '1', name: 'Corporate Premier Checking (HBL)', number: 'PK36 HABB 4892', balance: 14892050.50, type: 'Checking', status: 'Active', growth: '+4.2%' },
+    { id: '2', name: 'Meezan High-Yield Islamic Savings', number: 'PK68 MEZN 7120', balance: 8540000.00, type: 'Savings', status: 'Active', growth: '+5.1%' },
+    { id: '3', name: 'Allied Money Market Treasury', number: 'PK12 ABLP 9011', balance: 4500025.00, type: 'Investment', status: 'Active', growth: '+3.8%' },
   ];
 
   const recentLedger = [
-    { id: 'TXN-98421', party: 'Acme Global Logistics Inc.', ref: 'INV-2026-88', date: 'Today, 10:45 AM', type: 'Credit', category: 'Client Transfer', amount: '+$24,500.00', status: 'Settled' },
-    { id: 'TXN-98420', party: 'Amazon Web Services Inc.', ref: 'AWS-99120', date: 'Yesterday, 04:12 PM', type: 'Debit', category: 'Infrastructure', amount: '-$1,840.00', status: 'Settled' },
-    { id: 'TXN-98419', party: 'Stripe Payments Payout', ref: 'STR-77291', date: 'Aug 12, 02:30 PM', type: 'Credit', category: 'Merchant Earnings', amount: '+$8,920.40', status: 'Settled' },
-    { id: 'TXN-98418', party: 'WeWork Office Lease', ref: 'LS-33910', date: 'Aug 10, 09:15 AM', type: 'Debit', category: 'Real Estate', amount: '-$4,500.00', status: 'Settled' },
-    { id: 'TXN-98417', party: 'TechCorp Dividend Pay', ref: 'DIV-1002', date: 'Aug 08, 11:00 AM', type: 'Credit', category: 'Investment', amount: '+$3,150.00', status: 'Settled' },
+    { id: 'TXN-98421', party: 'Engro Corporation Ltd.', ref: 'INV-2026-88', date: 'Today, 10:45 AM', type: 'Credit', category: 'Client Transfer', amount: '+Rs. 2,450,000.00', status: 'Settled' },
+    { id: 'TXN-98420', party: 'K-Electric Power Supply', ref: 'KE-99120', date: 'Yesterday, 04:12 PM', type: 'Debit', category: 'Utilities', amount: '-Rs. 184,000.00', status: 'Settled' },
+    { id: 'TXN-98419', party: 'NayaPay Merchant Payout', ref: 'NYP-77291', date: 'Aug 12, 02:30 PM', type: 'Credit', category: 'Merchant Earnings', amount: '+Rs. 892,040.00', status: 'Settled' },
+    { id: 'TXN-98418', party: 'Packages Limited Commercial Lease', ref: 'PKG-33910', date: 'Aug 10, 09:15 AM', type: 'Debit', category: 'Real Estate', amount: '-Rs. 450,000.00', status: 'Settled' },
+    { id: 'TXN-98417', party: 'Systems Limited Dividend Pay', ref: 'DIV-1002', date: 'Aug 08, 11:00 AM', type: 'Credit', category: 'Investment Yield', amount: '+Rs. 315,000.00', status: 'Settled' },
   ];
 
   return (
@@ -39,16 +38,16 @@ const DashboardPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg">
-            JD
+            MU
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Welcome back, John Doe</h1>
+              <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Welcome back, Muhammad Usman</h1>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                <ShieldCheck size={12} /> Verified
+                <ShieldCheck size={12} /> Verified SBP
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">Corporate Banking Portal • Account ID #CB-8849-019</p>
+            <p className="text-xs text-slate-500 mt-0.5">Corporate Banking Portal • CNIC #42101-9876543-1 • Account #CB-8849-PK</p>
           </div>
         </div>
 
@@ -70,17 +69,17 @@ const DashboardPage: React.FC = () => {
           <div>
             <div className="flex items-center justify-between text-slate-500 mb-2">
               <span className="text-xs font-semibold uppercase tracking-wider">Total Net Liquidity</span>
-              <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                <DollarSign size={18} />
+              <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">
+                PKR
               </div>
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">$279,320.75</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 27,932,075</h2>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
             <span className="text-emerald-600 font-semibold flex items-center gap-1">
               <TrendingUp size={14} /> +8.4% this month
             </span>
-            <span className="text-slate-400">USD Equivalent</span>
+            <span className="text-slate-400">PKR Equivalent</span>
           </div>
         </Card>
 
@@ -92,7 +91,7 @@ const DashboardPage: React.FC = () => {
                 <ArrowDownLeft size={18} />
               </div>
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">$36,570.40</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 3,657,040</h2>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
             <span className="text-emerald-600 font-semibold">12 Deposits Settled</span>
@@ -108,10 +107,10 @@ const DashboardPage: React.FC = () => {
                 <ArrowUpRight size={18} />
               </div>
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">$6,340.00</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 634,000</h2>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-slate-600 font-medium">8 Outgoing Wire Transfers</span>
+            <span className="text-slate-600 font-medium">8 Raast / Interbank Transfers</span>
             <span className="text-slate-400">Aug 2026</span>
           </div>
         </Card>
@@ -124,10 +123,10 @@ const DashboardPage: React.FC = () => {
                 <Sparkles size={18} />
               </div>
             </div>
-            <h2 className="text-3xl font-extrabold text-white tracking-tight">$500,000.00</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Rs. 50,000,000</h2>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between text-xs text-slate-300">
-            <span>Pre-approved Revolving</span>
+            <span>Pre-approved Commercial</span>
             <span className="text-teal-400 font-semibold">0.0% Drawn</span>
           </div>
         </Card>
@@ -140,7 +139,7 @@ const DashboardPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
               <h3 className="text-lg font-bold text-slate-900">Liquidity Trend & Net Position</h3>
-              <p className="text-xs text-slate-500">Historical asset curve over recent billing cycles</p>
+              <p className="text-xs text-slate-500">Historical asset curve over recent billing cycles (PKR)</p>
             </div>
             <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-medium text-slate-600">
               {['7 Days', '30 Days', 'This Month', '1 Year'].map((p) => (
@@ -164,18 +163,15 @@ const DashboardPage: React.FC = () => {
                   <stop offset="100%" stopColor="#2563EB" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
-              {/* Grid Lines */}
               <line x1="0" y1="30" x2="500" y2="30" stroke="#E2E8F0" strokeDasharray="3 3" />
               <line x1="0" y1="75" x2="500" y2="75" stroke="#E2E8F0" strokeDasharray="3 3" />
               <line x1="0" y1="120" x2="500" y2="120" stroke="#E2E8F0" strokeDasharray="3 3" />
               
-              {/* Area Fill */}
               <path
                 d="M 0,110 Q 75,90 150,95 T 300,50 T 420,35 T 500,20 L 500,150 L 0,150 Z"
                 fill="url(#chartGradient)"
               />
 
-              {/* Line */}
               <path
                 d="M 0,110 Q 75,90 150,95 T 300,50 T 420,35 T 500,20"
                 fill="none"
@@ -184,16 +180,15 @@ const DashboardPage: React.FC = () => {
                 strokeLinecap="round"
               />
 
-              {/* Data Dot Highlight */}
               <circle cx="420" cy="35" r="5" fill="#2563EB" stroke="#FFFFFF" strokeWidth="3" />
             </svg>
           </div>
 
           <div className="grid grid-cols-4 gap-2 pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-            <div><span className="block font-semibold text-slate-900">M1</span>$210k</div>
-            <div><span className="block font-semibold text-slate-900">M2</span>$235k</div>
-            <div><span className="block font-semibold text-slate-900">M3</span>$258k</div>
-            <div><span className="block font-semibold text-blue-600 font-bold">M4 (Current)</span>$279k</div>
+            <div><span className="block font-semibold text-slate-900">M1</span>Rs. 21.0M</div>
+            <div><span className="block font-semibold text-slate-900">M2</span>Rs. 23.5M</div>
+            <div><span className="block font-semibold text-slate-900">M3</span>Rs. 25.8M</div>
+            <div><span className="block font-semibold text-blue-600 font-bold">M4 (Current)</span>Rs. 27.9M</div>
           </div>
         </Card>
 
@@ -223,7 +218,7 @@ const DashboardPage: React.FC = () => {
                 <p className="text-sm font-bold text-slate-900 truncate">{acc.name}</p>
                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-200/50">
                   <span className="text-xs text-slate-400 font-mono">{acc.number}</span>
-                  <span className="text-sm font-extrabold text-slate-900">${acc.balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                  <span className="text-sm font-extrabold text-slate-900">Rs. {acc.balance.toLocaleString('en-PK', { minimumFractionDigits: 2 })}</span>
                 </div>
               </div>
             ))}
@@ -240,7 +235,7 @@ const DashboardPage: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <h3 className="text-lg font-bold text-slate-900">Recent Transaction History</h3>
-            <p className="text-xs text-slate-500">Real-time ledger posted across all sub-accounts</p>
+            <p className="text-xs text-slate-500">Real-time ledger posted across all Pakistani bank accounts & Raast</p>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="outline" size="sm" onClick={() => navigate('/transactions')}>
@@ -260,7 +255,7 @@ const DashboardPage: React.FC = () => {
                 <th className="py-3 px-6">Counterparty / Beneficiary</th>
                 <th className="py-3 px-6">Category</th>
                 <th className="py-3 px-6">Date & Time</th>
-                <th className="py-3 px-6 text-right">Amount</th>
+                <th className="py-3 px-6 text-right">Amount (PKR)</th>
                 <th className="py-3 px-6 text-center">Status</th>
               </tr>
             </thead>

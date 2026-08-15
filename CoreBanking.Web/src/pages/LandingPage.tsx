@@ -75,15 +75,15 @@ const LandingPage: React.FC = () => {
           <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto border-t border-slate-800 text-slate-400 text-xs">
             <div className="flex items-center justify-center gap-2">
               <ShieldCheck size={18} className="text-emerald-400" />
-              <span>256-Bit SSL Encrypted</span>
+              <span>SBP Regulated Banking</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Award size={18} className="text-blue-400" />
-              <span>SOC-2 Type II Certified</span>
+              <span>1-Link & PayPak Partner</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Globe2 size={18} className="text-teal-400" />
-              <span>Real-Time SWIFT Wire</span>
+              <span>Raast Instant Settlement</span>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Zap size={18} className="text-amber-400" />
