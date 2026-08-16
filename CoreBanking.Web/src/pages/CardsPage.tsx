@@ -156,19 +156,19 @@ const CardsPage: React.FC = () => {
           {/* Card Limits Summary */}
           <Card>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-base font-bold text-slate-900">Monthly Spending Limits</h3>
-              <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Monthly Spending Limits</h3>
+              <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950 px-2.5 py-1 rounded-lg">
                 Limit Reset in 16 Days
               </span>
             </div>
 
             <div className="space-y-4">
               <div>
-                <div className="flex justify-between text-xs font-semibold mb-1 text-slate-600">
+                <div className="flex justify-between text-xs font-semibold mb-1 text-slate-600 dark:text-slate-300">
                   <span>Spent This Month (Rs. {currentCard.used.toLocaleString()})</span>
-                  <span className="font-bold text-slate-900">Rs. {currentCard.limit.toLocaleString()} Limit</span>
+                  <span className="font-bold text-slate-900 dark:text-white">Rs. {currentCard.limit.toLocaleString()} Limit</span>
                 </div>
-                <div className="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+                <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
                   <div 
                     className="bg-blue-600 h-full rounded-full transition-all duration-500" 
                     style={{ width: `${(currentCard.used / currentCard.limit) * 100}%` }}
@@ -176,16 +176,16 @@ const CardsPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-3 border-t border-slate-100 text-xs">
+              <div className="grid grid-cols-2 gap-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
                 <div>
                   <span className="text-slate-400 block uppercase tracking-wider">Remaining Allowance</span>
-                  <span className="text-base font-extrabold text-emerald-600">
+                  <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-400">
                     Rs. {(currentCard.limit - currentCard.used).toLocaleString()}
                   </span>
                 </div>
                 <div>
                   <span className="text-slate-400 block uppercase tracking-wider">Daily 1-Link ATM Limit</span>
-                  <span className="text-base font-bold text-slate-800">Rs. 250,000.00</span>
+                  <span className="text-base font-bold text-slate-800 dark:text-slate-200">Rs. 250,000.00</span>
                 </div>
               </div>
             </div>
@@ -193,44 +193,44 @@ const CardsPage: React.FC = () => {
 
           {/* Security Controls Toggle Switches */}
           <Card>
-            <h3 className="text-base font-bold text-slate-900 mb-4 pb-3 border-b border-slate-100">
+            <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
               Security & Merchant Controls
             </h3>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center">
                     <Globe size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900">Online & E-Commerce Payments</p>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">Online & E-Commerce Payments</p>
                     <p className="text-xs text-slate-400">Allow card purchases on web & app platforms</p>
                   </div>
                 </div>
                 <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 accent-blue-600 cursor-pointer" />
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                     <Smartphone size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900">Contactless NFC / Apple Pay</p>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">Contactless NFC / Apple Pay</p>
                     <p className="text-xs text-slate-400">Tap to pay at physical POS terminals</p>
                   </div>
                 </div>
                 <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 accent-blue-600 cursor-pointer" />
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 flex items-center justify-center">
                     <DollarSign size={18} />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-slate-900">ATM Cash Withdrawals</p>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">ATM Cash Withdrawals</p>
                     <p className="text-xs text-slate-400">Enable physical ATM cash disbursements</p>
                   </div>
                 </div>

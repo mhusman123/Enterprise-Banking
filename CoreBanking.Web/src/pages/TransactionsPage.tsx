@@ -59,7 +59,7 @@ const TransactionsPage: React.FC = () => {
       {/* Table Card */}
       <Card className="p-0 overflow-hidden">
         {/* Search & Filter Bar */}
-        <div className="p-5 border-b border-slate-200/80 flex flex-col md:flex-row gap-4 items-center justify-between bg-slate-50/50">
+        <div className="p-5 border-b border-slate-200/80 dark:border-slate-800 flex flex-col md:flex-row gap-4 items-center justify-between bg-slate-50/50 dark:bg-slate-800/40">
           <div className="relative w-full md:w-80">
             <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
             <input
@@ -67,16 +67,16 @@ const TransactionsPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search counterparty, reference ID..."
-              className="w-full pl-9 pr-3 py-2 text-xs bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
+              className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
             />
           </div>
 
-          <div className="flex items-center gap-1 bg-slate-200/60 p-1 rounded-xl text-xs font-semibold text-slate-600 shrink-0">
+          <div className="flex items-center gap-1 bg-slate-200/60 dark:bg-slate-800 p-1 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 shrink-0">
             {['All', 'Deposits', 'Withdrawals'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded-lg transition-all ${activeTab === tab ? 'bg-white text-slate-900 card-shadow font-bold' : 'hover:text-slate-900'}`}
+                className={`px-3 py-1.5 rounded-lg transition-all ${activeTab === tab ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white card-shadow font-bold' : 'hover:text-slate-900 dark:hover:text-white'}`}
               >
                 {tab}
               </button>
@@ -86,8 +86,8 @@ const TransactionsPage: React.FC = () => {
 
         {/* Ledger Table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-600 min-w-[800px]">
-            <thead className="bg-slate-50 border-b border-slate-200/80 font-bold uppercase tracking-wider text-slate-500">
+          <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300 min-w-[800px]">
+            <thead className="bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200/80 dark:border-slate-800 font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               <tr>
                 <th className="py-3.5 px-6">Transaction ID</th>
                 <th className="py-3.5 px-6">Beneficiary / Party</th>
@@ -98,29 +98,29 @@ const TransactionsPage: React.FC = () => {
                 <th className="py-3.5 px-6 text-center">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 bg-white">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
               {filtered.map((tx) => (
-                <tr key={tx.id} className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-4 px-6 font-mono font-semibold text-slate-900">{tx.id}</td>
+                <tr key={tx.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                  <td className="py-4 px-6 font-mono font-semibold text-slate-900 dark:text-white">{tx.id}</td>
                   <td className="py-4 px-6">
                     <div>
-                      <p className="font-bold text-slate-900">{tx.party}</p>
+                      <p className="font-bold text-slate-900 dark:text-white">{tx.party}</p>
                       <p className="text-[11px] text-slate-400 font-mono">Ref: {tx.ref}</p>
                     </div>
                   </td>
                   <td className="py-4 px-6">
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium">
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium">
                       {tx.category}
                     </span>
                   </td>
-                  <td className="py-4 px-6 text-slate-500 font-medium">{tx.account}</td>
-                  <td className="py-4 px-6 text-slate-500">{tx.date}</td>
-                  <td className={`py-4 px-6 text-right font-extrabold text-sm ${tx.type === 'Credit' ? 'text-emerald-600' : 'text-slate-900'}`}>
+                  <td className="py-4 px-6 text-slate-500 dark:text-slate-400 font-medium">{tx.account}</td>
+                  <td className="py-4 px-6 text-slate-500 dark:text-slate-400">{tx.date}</td>
+                  <td className={`py-4 px-6 text-right font-extrabold text-sm ${tx.type === 'Credit' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>
                     {tx.amount}
                   </td>
                   <td className="py-4 px-6 text-center">
                     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold border ${
-                      tx.status === 'Settled' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-amber-50 text-amber-700 border-amber-200'
+                      tx.status === 'Settled' ? 'bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800' : 'bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
                     }`}>
                       {tx.status}
                     </span>

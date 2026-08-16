@@ -67,16 +67,16 @@ const DashboardPage: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <Card className="flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between text-slate-500 mb-2">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
               <span className="text-xs font-semibold uppercase tracking-wider">Total Net Liquidity</span>
-              <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs">
                 PKR
               </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 27,932,075</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Rs. 27,932,075</h2>
           </div>
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-emerald-600 font-semibold flex items-center gap-1">
+          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
               <TrendingUp size={14} /> +8.4% this month
             </span>
             <span className="text-slate-400">PKR Equivalent</span>
@@ -85,32 +85,32 @@ const DashboardPage: React.FC = () => {
 
         <Card className="flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between text-slate-500 mb-2">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
               <span className="text-xs font-semibold uppercase tracking-wider">Monthly Inflow</span>
-              <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <ArrowDownLeft size={18} />
               </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 3,657,040</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Rs. 3,657,040</h2>
           </div>
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-emerald-600 font-semibold">12 Deposits Settled</span>
+          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">12 Deposits Settled</span>
             <span className="text-slate-400">Aug 2026</span>
           </div>
         </Card>
 
         <Card className="flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between text-slate-500 mb-2">
+            <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
               <span className="text-xs font-semibold uppercase tracking-wider">Monthly Outflow</span>
-              <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950 text-rose-600 dark:text-rose-400 flex items-center justify-center">
                 <ArrowUpRight size={18} />
               </div>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 634,000</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Rs. 634,000</h2>
           </div>
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span className="text-slate-600 font-medium">8 Raast / Interbank Transfers</span>
+          <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+            <span className="text-slate-600 dark:text-slate-300 font-medium">8 Raast / Interbank Transfers</span>
             <span className="text-slate-400">Aug 2026</span>
           </div>
         </Card>
@@ -138,15 +138,15 @@ const DashboardPage: React.FC = () => {
         <Card className="lg:col-span-2 flex flex-col justify-between">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">Liquidity Trend & Net Position</h3>
-              <p className="text-xs text-slate-500">Historical asset curve over recent billing cycles (PKR)</p>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Liquidity Trend & Net Position</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Historical asset curve over recent billing cycles (PKR)</p>
             </div>
-            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-medium text-slate-600">
+            <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300">
               {['7 Days', '30 Days', 'This Month', '1 Year'].map((p) => (
                 <button
                   key={p}
                   onClick={() => setSelectedPeriod(p)}
-                  className={`px-2.5 py-1 rounded-lg transition-all ${selectedPeriod === p ? 'bg-white text-slate-900 font-bold card-shadow' : 'hover:text-slate-900'}`}
+                  className={`px-2.5 py-1 rounded-lg transition-all ${selectedPeriod === p ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold card-shadow' : 'hover:text-slate-900 dark:hover:text-white'}`}
                 >
                   {p}
                 </button>
@@ -163,9 +163,9 @@ const DashboardPage: React.FC = () => {
                   <stop offset="100%" stopColor="#2563EB" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
-              <line x1="0" y1="30" x2="500" y2="30" stroke="#E2E8F0" strokeDasharray="3 3" />
-              <line x1="0" y1="75" x2="500" y2="75" stroke="#E2E8F0" strokeDasharray="3 3" />
-              <line x1="0" y1="120" x2="500" y2="120" stroke="#E2E8F0" strokeDasharray="3 3" />
+              <line x1="0" y1="30" x2="500" y2="30" stroke="#334155" strokeDasharray="3 3" />
+              <line x1="0" y1="75" x2="500" y2="75" stroke="#334155" strokeDasharray="3 3" />
+              <line x1="0" y1="120" x2="500" y2="120" stroke="#334155" strokeDasharray="3 3" />
               
               <path
                 d="M 0,110 Q 75,90 150,95 T 300,50 T 420,35 T 500,20 L 500,150 L 0,150 Z"
@@ -184,21 +184,21 @@ const DashboardPage: React.FC = () => {
             </svg>
           </div>
 
-          <div className="grid grid-cols-4 gap-2 pt-4 border-t border-slate-100 text-center text-xs text-slate-500">
-            <div><span className="block font-semibold text-slate-900">M1</span>Rs. 21.0M</div>
-            <div><span className="block font-semibold text-slate-900">M2</span>Rs. 23.5M</div>
-            <div><span className="block font-semibold text-slate-900">M3</span>Rs. 25.8M</div>
-            <div><span className="block font-semibold text-blue-600 font-bold">M4 (Current)</span>Rs. 27.9M</div>
+          <div className="grid grid-cols-4 gap-2 pt-4 border-t border-slate-100 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400">
+            <div><span className="block font-semibold text-slate-900 dark:text-white">M1</span>Rs. 21.0M</div>
+            <div><span className="block font-semibold text-slate-900 dark:text-white">M2</span>Rs. 23.5M</div>
+            <div><span className="block font-semibold text-slate-900 dark:text-white">M3</span>Rs. 25.8M</div>
+            <div><span className="block font-semibold text-blue-600 dark:text-blue-400 font-bold">M4 (Current)</span>Rs. 27.9M</div>
           </div>
         </Card>
 
         {/* Linked Accounts Mini List */}
         <Card className="flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-slate-900">Primary Accounts</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Primary Accounts</h3>
             <button 
               onClick={() => navigate('/accounts')}
-              className="text-xs font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1"
+              className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 flex items-center gap-1"
             >
               View All <ChevronRight size={14} />
             </button>
@@ -209,16 +209,16 @@ const DashboardPage: React.FC = () => {
               <div 
                 key={acc.id}
                 onClick={() => navigate('/accounts')}
-                className="p-3.5 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white hover:border-slate-300 hover:shadow-md transition-all cursor-pointer"
+                className="p-3.5 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md transition-all cursor-pointer"
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-semibold text-slate-500">{acc.type}</span>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">{acc.growth}</span>
+                  <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">{acc.type}</span>
+                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded-full">{acc.growth}</span>
                 </div>
-                <p className="text-sm font-bold text-slate-900 truncate">{acc.name}</p>
-                <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-200/50">
+                <p className="text-sm font-bold text-slate-900 dark:text-white truncate">{acc.name}</p>
+                <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
                   <span className="text-xs text-slate-400 font-mono">{acc.number}</span>
-                  <span className="text-sm font-extrabold text-slate-900">Rs. {acc.balance.toLocaleString('en-PK', { minimumFractionDigits: 2 })}</span>
+                  <span className="text-sm font-extrabold text-slate-900 dark:text-white">Rs. {acc.balance.toLocaleString('en-PK', { minimumFractionDigits: 2 })}</span>
                 </div>
               </div>
             ))}
@@ -234,8 +234,8 @@ const DashboardPage: React.FC = () => {
       <Card>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Recent Transaction History</h3>
-            <p className="text-xs text-slate-500">Real-time ledger posted across all Pakistani bank accounts & Raast</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Recent Transaction History</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Real-time ledger posted across all Pakistani bank accounts & Raast</p>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="outline" size="sm" onClick={() => navigate('/transactions')}>
@@ -248,8 +248,8 @@ const DashboardPage: React.FC = () => {
         </div>
 
         <div className="overflow-x-auto -mx-6">
-          <table className="w-full text-left text-xs text-slate-600 min-w-[700px]">
-            <thead className="bg-slate-50 border-y border-slate-200/80 font-bold uppercase tracking-wider text-slate-500">
+          <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300 min-w-[700px]">
+            <thead className="bg-slate-50 dark:bg-slate-800/80 border-y border-slate-200/80 dark:border-slate-800 font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               <tr>
                 <th className="py-3 px-6">Reference ID</th>
                 <th className="py-3 px-6">Counterparty / Beneficiary</th>
@@ -259,22 +259,22 @@ const DashboardPage: React.FC = () => {
                 <th className="py-3 px-6 text-center">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
               {recentLedger.map((tx) => (
-                <tr key={tx.id} className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-3.5 px-6 font-mono font-semibold text-slate-900">{tx.id}</td>
-                  <td className="py-3.5 px-6 font-bold text-slate-900">{tx.party}</td>
+                <tr key={tx.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                  <td className="py-3.5 px-6 font-mono font-semibold text-slate-900 dark:text-white">{tx.id}</td>
+                  <td className="py-3.5 px-6 font-bold text-slate-900 dark:text-white">{tx.party}</td>
                   <td className="py-3.5 px-6">
-                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-medium">
+                    <span className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium">
                       {tx.category}
                     </span>
                   </td>
-                  <td className="py-3.5 px-6 text-slate-500">{tx.date}</td>
-                  <td className={`py-3.5 px-6 text-right font-extrabold text-sm ${tx.type === 'Credit' ? 'text-emerald-600' : 'text-slate-900'}`}>
+                  <td className="py-3.5 px-6 text-slate-500 dark:text-slate-400">{tx.date}</td>
+                  <td className={`py-3.5 px-6 text-right font-extrabold text-sm ${tx.type === 'Credit' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>
                     {tx.amount}
                   </td>
                   <td className="py-3.5 px-6 text-center">
-                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
                       {tx.status}
                     </span>
                   </td>

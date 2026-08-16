@@ -80,25 +80,25 @@ const LoansPage: React.FC = () => {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
         <Card className="flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-500 mb-2">
+          <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Principal Drawn</span>
-            <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">
+            <div className="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-xs">
               PKR
             </div>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 65,000,000</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Rs. 65,000,000</h2>
           <span className="text-xs text-slate-400 mt-2">Across 2 Active Facilities</span>
         </Card>
 
         <Card className="flex flex-col justify-between">
-          <div className="flex items-center justify-between text-slate-500 mb-2">
+          <div className="flex items-center justify-between text-slate-500 dark:text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total Remaining Balance</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xs">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-xs">
               PKR
             </div>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Rs. 46,245,000</h2>
-          <span className="text-xs text-emerald-600 font-semibold mt-2">29% Total Debt Repaid</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Rs. 46,245,000</h2>
+          <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-2">29% Total Debt Repaid</span>
         </Card>
 
         <Card className="flex flex-col justify-between bg-slate-900 text-white border-0 shadow-lg">
@@ -120,20 +120,20 @@ const LoansPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Active Facilities */}
         <div className="lg:col-span-2 space-y-5">
-          <h3 className="text-lg font-bold text-slate-900">Active Credit Facilities</h3>
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white">Active Credit Facilities</h3>
 
           <div className="space-y-4">
             {activeLoans.map((loan) => (
               <Card key={loan.id} className="relative overflow-hidden">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-100">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-mono font-semibold text-slate-400">{loan.id}</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">{loan.facility}</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">{loan.facility}</span>
                     </div>
-                    <h4 className="text-lg font-extrabold text-slate-900 mt-0.5">{loan.title}</h4>
+                    <h4 className="text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">{loan.title}</h4>
                   </div>
-                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg border border-emerald-200 self-start sm:self-auto">
+                  <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950 px-3 py-1 rounded-lg border border-emerald-200 dark:border-emerald-800 self-start sm:self-auto">
                     {loan.rate}
                   </span>
                 </div>
@@ -141,34 +141,34 @@ const LoansPage: React.FC = () => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-5 text-xs">
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Original Principal</span>
-                    <span className="text-sm font-bold text-slate-800">Rs. {loan.principal.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200">Rs. {loan.principal.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Remaining Principal</span>
-                    <span className="text-sm font-bold text-slate-900">Rs. {loan.remaining.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-slate-900 dark:text-white">Rs. {loan.remaining.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Monthly EMI</span>
-                    <span className="text-sm font-bold text-blue-600">Rs. {loan.nextEmiAmount.toLocaleString()}</span>
+                    <span className="text-sm font-bold text-blue-600 dark:text-blue-400">Rs. {loan.nextEmiAmount.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 block uppercase tracking-wider">Next Due Date</span>
-                    <span className="text-sm font-bold text-slate-800">{loan.dueDate}</span>
+                    <span className="text-sm font-bold text-slate-800 dark:text-slate-200">{loan.dueDate}</span>
                   </div>
                 </div>
 
                 {/* Progress Bar */}
                 <div className="space-y-1.5">
-                  <div className="flex justify-between text-xs font-medium text-slate-600">
+                  <div className="flex justify-between text-xs font-medium text-slate-600 dark:text-slate-300">
                     <span>Repayment Progress ({loan.paidInstallments} / {loan.totalInstallments} EMIs)</span>
-                    <span className="font-bold text-slate-900">{loan.progress}% Paid</span>
+                    <span className="font-bold text-slate-900 dark:text-white">{loan.progress}% Paid</span>
                   </div>
-                  <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                  <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden">
                     <div className="bg-blue-600 h-full rounded-full transition-all duration-500" style={{ width: `${loan.progress}%` }}></div>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-100 flex justify-end gap-3">
+                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3">
                   <Button variant="outline" size="sm">View Repayment Schedule</Button>
                   <Button size="sm">Pay EMI Early</Button>
                 </div>
@@ -249,14 +249,14 @@ const LoansPage: React.FC = () => {
       <Card>
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Upcoming Repayment Schedule</h3>
-            <p className="text-xs text-slate-500">Amortization installments for Machinery Financing (LN-88410)</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Upcoming Repayment Schedule</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Amortization installments for Machinery Financing (LN-88410)</p>
           </div>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-600">
-            <thead className="bg-slate-50 border-y border-slate-200/80 font-bold uppercase tracking-wider text-slate-500">
+          <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+            <thead className="bg-slate-50 dark:bg-slate-800/80 border-y border-slate-200/80 dark:border-slate-800 font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               <tr>
                 <th className="py-3 px-6">Installment #</th>
                 <th className="py-3 px-6">Due Date</th>
@@ -266,19 +266,19 @@ const LoansPage: React.FC = () => {
                 <th className="py-3 px-6 text-center">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 bg-white">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
               {repaymentSchedule.map((row) => (
-                <tr key={row.no} className="hover:bg-slate-50/80 transition-colors">
-                  <td className="py-3.5 px-6 font-bold text-slate-900">Installment #{row.no}</td>
-                  <td className="py-3.5 px-6 text-slate-500 font-medium">{row.due}</td>
-                  <td className="py-3.5 px-6 font-semibold text-slate-800">{row.principal}</td>
-                  <td className="py-3.5 px-6 text-slate-500">{row.interest}</td>
-                  <td className="py-3.5 px-6 text-right font-extrabold text-slate-900">{row.total}</td>
+                <tr key={row.no} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/50 transition-colors">
+                  <td className="py-3.5 px-6 font-bold text-slate-900 dark:text-white">Installment #{row.no}</td>
+                  <td className="py-3.5 px-6 text-slate-500 dark:text-slate-400 font-medium">{row.due}</td>
+                  <td className="py-3.5 px-6 font-semibold text-slate-800 dark:text-slate-200">{row.principal}</td>
+                  <td className="py-3.5 px-6 text-slate-500 dark:text-slate-400">{row.interest}</td>
+                  <td className="py-3.5 px-6 text-right font-extrabold text-slate-900 dark:text-white">{row.total}</td>
                   <td className="py-3.5 px-6 text-center">
                     <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${
                       row.status === 'Pending'
-                        ? 'bg-amber-50 text-amber-700 border-amber-200'
-                        : 'bg-slate-100 text-slate-600 border-slate-200'
+                        ? 'bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                     }`}>
                       <Clock size={12} /> {row.status}
                     </span>

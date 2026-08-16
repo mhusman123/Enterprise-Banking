@@ -49,30 +49,30 @@ const SupportPage: React.FC = () => {
 
       {/* Support Contact Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <Card className="text-center space-y-3 hover:border-slate-300 transition-all cursor-pointer">
-          <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
+        <Card className="text-center space-y-3 hover:border-slate-300 dark:hover:border-slate-700 transition-all cursor-pointer">
+          <div className="w-11 h-11 rounded-2xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center mx-auto">
             <Phone size={22} />
           </div>
-          <h3 className="font-extrabold text-slate-900 text-base">Priority Helpline (Pakistan)</h3>
-          <p className="text-xs text-slate-500">24/7 Institutional Support Desk</p>
-          <p className="text-sm font-bold text-blue-600 font-mono">0800-26732 / +92 (21) 111-267-326</p>
+          <h3 className="font-extrabold text-slate-900 dark:text-white text-base">Priority Helpline (Pakistan)</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400">24/7 Institutional Support Desk</p>
+          <p className="text-sm font-bold text-blue-600 dark:text-blue-400 font-mono">0800-26732 / +92 (21) 111-267-326</p>
         </Card>
 
-        <Card className="text-center space-y-3 hover:border-slate-300 transition-all cursor-pointer">
-          <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
+        <Card className="text-center space-y-3 hover:border-slate-300 dark:hover:border-slate-700 transition-all cursor-pointer">
+          <div className="w-11 h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
             <Mail size={22} />
           </div>
-          <h3 className="font-extrabold text-slate-900 text-base">Official Banking Desk</h3>
-          <p className="text-xs text-slate-500">Guaranteed response within 4 hours</p>
-          <p className="text-sm font-bold text-emerald-600 font-mono">support@corebank.pk</p>
+          <h3 className="font-extrabold text-slate-900 dark:text-white text-base">Official Banking Desk</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Guaranteed response within 4 hours</p>
+          <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400 font-mono">support@corebank.pk</p>
         </Card>
 
-        <Card className="text-center space-y-3 hover:border-slate-300 transition-all cursor-pointer">
-          <div className="w-11 h-11 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mx-auto">
+        <Card className="text-center space-y-3 hover:border-slate-300 dark:hover:border-slate-700 transition-all cursor-pointer">
+          <div className="w-11 h-11 rounded-2xl bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 flex items-center justify-center mx-auto">
             <MessageSquare size={22} />
           </div>
-          <h3 className="font-extrabold text-slate-900 text-base">Encrypted Live Chat</h3>
-          <p className="text-xs text-slate-500">Secure session with assigned banker</p>
+          <h3 className="font-extrabold text-slate-900 dark:text-white text-base">Encrypted Live Chat</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Secure session with assigned banker</p>
           <Button size="sm" variant="outline" className="w-full">Start Secure Chat</Button>
         </Card>
       </div>
@@ -81,18 +81,18 @@ const SupportPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
         {/* FAQs */}
         <div className="space-y-4">
-          <h2 className="text-lg font-extrabold text-slate-900 flex items-center gap-2">
-            <HelpCircle className="text-blue-600" size={20} /> Frequently Asked Questions
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <HelpCircle className="text-blue-600 dark:text-blue-400" size={20} /> Frequently Asked Questions
           </h2>
 
           <div className="space-y-3">
             {faqs.map((faq, idx) => (
-              <details key={idx} className="group bg-white rounded-2xl border border-slate-200/80 card-shadow transition-all overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between p-4 font-bold text-sm text-slate-900 hover:text-blue-600">
+              <details key={idx} className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow transition-all overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between p-4 font-bold text-sm text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400">
                   {faq.q}
                   <ChevronDown size={18} className="text-slate-400 transition-transform group-open:rotate-180" />
                 </summary>
-                <div className="p-4 pt-0 text-xs text-slate-600 leading-relaxed border-t border-slate-100">
+                <div className="p-4 pt-0 text-xs text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800">
                   <p className="pt-2">{faq.a}</p>
                 </div>
               </details>
@@ -103,16 +103,16 @@ const SupportPage: React.FC = () => {
         {/* Ticket Form */}
         <div>
           <Card className="space-y-4">
-            <div className="pb-3 border-b border-slate-100">
-              <h2 className="text-lg font-extrabold text-slate-900">Submit Priority Support Ticket</h2>
-              <p className="text-xs text-slate-500">Direct dispatch to dedicated compliance officer</p>
+            <div className="pb-3 border-b border-slate-100 dark:border-slate-800">
+              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">Submit Priority Support Ticket</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Direct dispatch to dedicated compliance officer</p>
             </div>
 
             {submitted ? (
-              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-2">
-                <CheckCircle2 size={36} className="text-emerald-600 mx-auto" />
-                <h3 className="text-base font-extrabold text-emerald-900">Ticket Submitted Successfully</h3>
-                <p className="text-xs text-emerald-700">Ticket reference ID #TKT-99120. A banking officer will respond to your registered email shortly.</p>
+              <div className="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-center space-y-2">
+                <CheckCircle2 size={36} className="text-emerald-600 dark:text-emerald-400 mx-auto" />
+                <h3 className="text-base font-extrabold text-emerald-900 dark:text-emerald-200">Ticket Submitted Successfully</h3>
+                <p className="text-xs text-emerald-700 dark:text-emerald-300">Ticket reference ID #TKT-99120. A banking officer will respond to your registered email shortly.</p>
                 <Button size="sm" variant="outline" onClick={() => setSubmitted(false)}>Submit Another Ticket</Button>
               </div>
             ) : (
@@ -125,12 +125,12 @@ const SupportPage: React.FC = () => {
                 <Input label="Subject / Inquiry Topic" placeholder="e.g. Raast Limit Upgrade Request" required />
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Detailed Message</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">Detailed Message</label>
                   <textarea
                     rows={4}
                     required
                     placeholder="Provide relevant transaction references or details..."
-                    className="w-full rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-900 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none"
+                    className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none resize-none"
                   ></textarea>
                 </div>
 
