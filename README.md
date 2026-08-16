@@ -1,12 +1,14 @@
-# 🏦 CoreBank — NextGen Enterprise Banking Platform
+# 🏦 CoreBank — NextGen Pakistani Enterprise Digital Banking Platform
 
 [![Framework](https://img.shields.io/badge/.NET-10.0.400-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
 [![Frontend](https://img.shields.io/badge/React-18.3-61DAFB?logo=react)](https://react.dev/)
 [![Styling](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
-[![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture%20%2B%20CQRS-22c55e)](#project-architecture)
+[![Database](https://img.shields.io/badge/Database-Neon%20PostgreSQL-00e599?logo=postgresql)](https://neon.tech/)
+[![Payment](https://img.shields.io/badge/Payment-PayFast%20%2F%201--Link%20Sandbox-22c55e)](#-payfast--1-link-sandbox-integration)
+[![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture%20%2B%20CQRS-22c55e)](#-project-architecture)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A high-performance, audit-grade enterprise digital banking platform built with **.NET 10** following **Clean Architecture** and **CQRS (Command Query Responsibility Segregation)** principles, coupled with an ultra-sleek commercial banking frontend built using **React 18, Vite, TypeScript, and Tailwind CSS v4**.
+A high-performance, audit-grade commercial digital banking platform built with **.NET 10** following **Clean Architecture** and **CQRS** principles, coupled with a localized commercial banking web app built using **React 18, Vite, TypeScript, and Tailwind CSS v4**. Fully localized for **Pakistan** (Pakistani Rupee `PKR` / `Rs.`, SBP regulation, 1-Link network, Raast QR, and HBL/Meezan/ABL/MCB bank integrations).
 
 ---
 
@@ -15,40 +17,52 @@ A high-performance, audit-grade enterprise digital banking platform built with *
 - [Key Features](#-key-features)
 - [Technology Stack & Core Skills](#-technology-stack--core-skills)
 - [Project Architecture](#-project-architecture)
+- [Pakistani Localization & Banking Ecosystem](#-pakistani-localization--banking-ecosystem)
+- [Neon PostgreSQL & PayFast Sandbox Integration](#-neon-postgresql--payfast-sandbox-integration)
 - [Directory & Folder Structure](#-directory--folder-structure)
 - [How to Run in Visual Studio Code](#-how-to-run-in-visual-studio-code)
-- [VS Code Debugging Configuration](#-vs-code-debugging-configuration)
+- [Free Cloud Deployment Instructions](#-free-cloud-deployment-instructions)
 - [Roadmap & Coming Soon](#-roadmap--coming-soon)
 
 ---
 
 ## 🌟 Project Overview
 
-CoreBank is an end-to-end digital banking system designed to handle real-time account ledgers, commercial credit facilities, multi-currency treasury reserves, and virtual card controls with banking-grade compliance and UI design.
+CoreBank is an end-to-end Pakistani digital banking platform designed to handle real-time account ledgers, SBP-regulated commercial credit lines, KIBOR-benchmarked loans, Raast QR payments, 1-Link utility bill payments, and PayFast sandbox checkouts.
 
-The platform separates business logic from infrastructure using a strict **4-layer Clean Architecture** pattern, providing clear extension points for transaction processing, interest accruals, background automated EMI deductions via Hangfire, and structured logging via Serilog.
+The system separates business logic from infrastructure using a strict **4-layer Clean Architecture** pattern, providing extension points for transaction processing, JWT role authorization, real-time SignalR notifications, QuestPDF vector statement generation, and PostgreSQL cloud persistence via Neon.tech.
 
 ---
 
 ## ✨ Key Features
 
-### 💻 Executive Banking Frontend
-- **Overview Analytics Dashboard**: Real-time liquidity metrics, visual SVG area charts for historical net position, quick transfer trigger, and recent transaction ledgers.
-- **Institutional Bank Accounts**: Checking, High-Yield Treasury Savings (5.20% APY), Money Market Investment, and Fixed Deposit accounts with IBAN copying and status management.
-- **Transaction Ledger**: Filterable table with settled/pending status pills, categories, wire references, and deposit/withdrawal modal wizard.
-- **Loans & Commercial Credit**: Active loan facilities progress bar, repayment schedules, and a **Live Interactive EMI Simulator** calculating monthly installments:
-  $$\text{EMI} = \frac{P \times r \times (1+r)^n}{(1+r)^n - 1}$$
-- **Virtual & Physical Payment Cards**: Metallic 3D card visual renders, lock/unlock card controls, CVV reveal toggle, PIN reset, and monthly spending limit meters.
-- **Admin & Compliance Desk**: Platform liquidity stats ($342.8M), system health monitoring, and immutable audit logs.
-- **Priority Helpdesk**: 24/7 support channels, searchable FAQs, and priority ticket submission.
+### 💻 Executive Banking Frontend (React 18 + Vite + Tailwind v4)
+- **Overview Analytics Dashboard (`/dashboard`)**: Real-time PKR net liquidity metrics, visual SVG area charts, quick transfer triggers, and recent transaction ledgers.
+- **Institutional Bank Accounts (`/accounts`)**: HBL Corporate Checking, Meezan Islamic Savings (12.4% APY), Allied Money Market Liquidity (ABL), and MCB Mahana Amdani Term Deposits with SBP IBAN copy buttons (`PK36 HABB...`).
+- **Utility Bill Payments & Mobile Recharge (`/bills`)**: 
+  - Electricity: K-Electric (Karachi), LESCO, IESCO, FESCO.
+  - Sui Gas Utilities: SSGC & SNGPL.
+  - Telecom & Mobile Load: Jazz/Warid, Telenor, Zong 4G, Ufone 4G bundle selectors.
+  - Live 1-Link consumer bill lookup simulation & instant payment receipts.
+- **Raast QR Code Pay (`/qr-pay`)**:
+  - Interactive camera viewfinder scanning simulator for merchant checkout (Al-Fateh Mall, Shell, K-Electric, NayaPay).
+  - Personal SBP Raast QR code generator to receive instant payments.
+- **Official Stamped PDF Statement Generator**:
+  - State Bank of Pakistan (SBP) verified stamp badge, customer CNIC (#42101-9876543-1), itemized transaction ledger, and QuestPDF vector print engine.
+- **Dark / Light Mode Theme Toggle**:
+  - High-contrast custom theme toggle with `localStorage` persistence.
+- **Virtual & Physical Payment Cards (`/cards`)**: PayPak, UnionPay & Visa metallic card renders, spending limit controls, CVV reveal, and PIN reset.
+- **Admin & Compliance Console (`/admin`)**: Institutional liquidity stats, system health monitoring, and immutable audit logs.
 
-### ⚙️ Enterprise .NET 10 Backend
+### ⚙️ Enterprise .NET 10 Backend (C# 13)
 - **Clean Architecture**: 4 distinct projects (`Domain`, `Application`, `Infrastructure`, `API`) with strict zero-dependency core rules.
 - **CQRS Pattern**: Decoupled Commands & Queries using `MediatR`.
-- **Entity Framework Core 10**: Fluent API configurations with decimal precision, unique indexes, and cascade safety rules.
-- **Hangfire Background Jobs**: Automated EMI repayment deductions and daily interest calculation job stubs.
-- **Custom Exception Middleware**: Global handling mapping `InsufficientBalanceException` (400) and `AccountFrozenException` (403).
-- **Swagger / OpenAPI**: Auto-generated documentation for all 6 API controllers.
+- **Neon PostgreSQL Cloud Integration**: Entity Framework Core 10 using `Npgsql.EntityFrameworkCore.PostgreSQL` with automatic database migrations on startup.
+- **PayFast & 1-Link Sandbox Engine**: Real sandbox checkout integration (`Merchant ID: 10043702`, `Merchant Key: d7nxjs2n7qdk6`) returning approval codes (`APPRV-XXXX`).
+- **JWT Authentication & Roles**: HMAC-SHA256 token generator supporting `Customer`, `BranchManager`, and `Admin` role claims.
+- **SignalR Live Notifications**: Real-time WebSocket hub (`/hubs/notifications`) pushing instant debit alerts to clients.
+- **QuestPDF Document Engine**: Generates official vector PDF receipts and monthly bank statements.
+- **Permanent Swagger UI**: Auto-generated interactive API documentation served always at `/swagger`.
 
 ---
 
@@ -57,14 +71,17 @@ The platform separates business logic from infrastructure using a strict **4-lay
 ### Backend (.NET 10)
 - **Language**: C# 13 / .NET 10.0.400 SDK
 - **Architecture**: Clean Architecture / Onion Architecture / CQRS
+- **Database**: Neon Serverless PostgreSQL (`Npgsql.EntityFrameworkCore.PostgreSQL`)
+- **Payment Sandbox**: PayFast Gateway (`https://sandbox.payfast.co.za`) & 1-Link Network
+- **Security**: JWT Bearer Authentication & Role-Based Authorization
+- **Real-Time Pushes**: ASP.NET Core SignalR
+- **PDF Engine**: QuestPDF (Community License)
 - **Mediation**: MediatR 14.2.0
 - **Validation**: FluentValidation
-- **ORM**: Entity Framework Core 10 (SQL Server Provider)
-- **Background Tasks**: Hangfire 1.8
 - **Logging**: Serilog with Console & File Sinks
-- **API Documentation**: Swashbuckle / Swagger UI
+- **API Documentation**: Swashbuckle / Swagger UI (`/swagger`)
 
-### Frontend (React + Vite)
+### Frontend (React 18 + Vite)
 - **Framework**: React 18
 - **Build Tool**: Vite 5
 - **Language**: TypeScript 5
@@ -78,17 +95,17 @@ The platform separates business logic from infrastructure using a strict **4-lay
 
 ```
                        +-----------------------+
-                       |   CoreBanking.API     |  (Controllers, Swagger, Middleware)
+                       |   CoreBanking.API     |  (Controllers, Swagger, SignalR Hubs, JWT)
                        +-----------+-----------+
                                    |
                                    v
                        +-----------------------+
-                       | CoreBanking.Infrastr. |  (EF Core DbContext, Repositories, Jobs)
+                       | CoreBanking.Infrastr. |  (Neon PostgreSQL EF Core, PayFast, QuestPDF)
                        +-----------+-----------+
                                    |
                                    v
                        +-----------------------+
-                       | CoreBanking.Applicat. |  (MediatR Commands, Queries, DTOs)
+                       | CoreBanking.Applicat. |  (MediatR Commands, Queries, Interfaces)
                        +-----------+-----------+
                                    |
                                    v
@@ -97,178 +114,125 @@ The platform separates business logic from infrastructure using a strict **4-lay
                        +-----------------------+
 ```
 
-### Clean Architecture Principles Enforced:
-1. **Domain Isolation**: `CoreBanking.Domain` has **zero** external library or project dependencies.
-2. **Dependency Inversion**: Outer layers (`Infrastructure`, `API`) depend on abstractions defined in inner layers (`Application`, `Domain`).
-3. **CQRS Segregation**: Read queries and state-changing commands are completely separated into dedicated MediatR request classes.
+---
+
+## 🇵🇰 Pakistani Localization & Banking Ecosystem
+
+- **Currency**: Pakistani Rupee (`PKR` / `Rs.`).
+- **Banks & IBAN Formats**:
+  - HBL: `PK36 HABB 0001 2345 6789 4892`
+  - Meezan Bank: `PK68 MEZN 0002 9918 2041 7120`
+  - Allied Bank (ABL): `PK12 ABLP 0005 8830 1922 9011`
+  - MCB Bank: `PK90 MCBB 0022 9941 2018 3310`
+- **Customer CNIC Profile**: `Muhammad Usman` (`CNIC #42101-9876543-1`).
+- **Counterparties**: Engro Corporation Ltd., K-Electric, NayaPay, Packages Limited, Systems Limited, PIA.
+- **Regulation**: State Bank of Pakistan (SBP) & 1-Link Network compliance.
 
 ---
 
-## 📁 Directory & Folder Structure
+## 🔌 Neon PostgreSQL & PayFast Sandbox Integration
+
+### 1. Neon PostgreSQL Connection (`appsettings.json`)
+```json
+"ConnectionStrings": {
+  "NeonPostgres": "Host=ep-bold-field-axu5e0l3-pooler.c-4.us-east-2.aws.neon.tech;Database=neondb;Username=neondb_owner;Password=npg_e8cUPjKXV1nt;SSL Mode=Require;Trust Server Certificate=true"
+}
+```
+
+### 2. PayFast Sandbox Configuration (`appsettings.json`)
+```json
+"PayFast": {
+  "MerchantId": "10043702",
+  "MerchantKey": "d7nxjs2n7qdk6",
+  "SandboxUrl": "https://sandbox.payfast.co.za/eng/process"
+}
+```
+
+---
+
+## 📂 Directory & Folder Structure
 
 ```
 CoreBankingPlatform/
-├── CoreBankingPlatform.slnx                   # .NET 10 Solution File
-├── README.md                                  # Comprehensive Documentation
-├── .gitignore                                 # Git Ignore Rules
-│
+├── Dockerfile                         # Production Dockerfile for Render / Koyeb
+├── CoreBankingPlatform.slnx           # .NET 10 Solution File
 ├── src/
-│   ├── CoreBanking.Domain/                    # Enterprise Business Layer
-│   │   ├── Entities/                          # Customer, Account, Transaction, Loan, Card, etc.
-│   │   ├── Enums/                             # AccountType, AccountStatus, TransactionType, etc.
-│   │   ├── Exceptions/                        # InsufficientBalanceException, AccountFrozenException
-│   │   └── Interfaces/                        # Repository Interfaces (IAccountRepository, etc.)
-│   │
-│   ├── CoreBanking.Application/               # Application Business Logic Layer
-│   │   ├── Common/                            # IApplicationDbContext interface
-│   │   ├── Accounts/                          # Commands, Queries, DTOs, Handlers
-│   │   ├── Transactions/                      # Deposit, Withdraw, Transfer Commands & Handlers
-│   │   ├── Loans/                             # Apply, Approve, Disburse, Repay Commands & Handlers
-│   │   ├── Cards/                             # Issue, Block Commands & Handlers
-│   │   └── Admin/                             # Audit Logs & Dashboard Queries
-│   │
-│   ├── CoreBanking.Infrastructure/            # External Infrastructure & Persistence
-│   │   ├── Persistence/                       # ApplicationDbContext & Entity Configurations
-│   │   │   ├── Configurations/                # Fluent API Entity Configurations
-│   │   │   └── Repositories/                  # Account, Transaction, Loan, Card Repositories
-│   │   ├── Jobs/                              # Hangfire EmiDeductionJob & InterestCalculationJob
-│   │   ├── Notifications/                     # Email & Notification Services
-│   │   └── Identity/                          # JwtTokenService Implementation
-│   │
-│   └── CoreBanking.API/                       # Web API Entry Point
-│       ├── Controllers/                       # Accounts, Transactions, Loans, Cards, Admin, Customers
-│       ├── Middleware/                        # ExceptionHandlingMiddleware
-│       ├── Program.cs                         # Dependency Injection, Middleware Pipeline & Swagger
-│       └── appsettings.json                   # Connection Strings & App Config
-│
+│   ├── CoreBanking.Domain/            # Entities: Account, Transaction, User, Loan, Card
+│   ├── CoreBanking.Application/       # MediatR Handlers, Interfaces (IJwtTokenGenerator, IPayFastSandboxService)
+│   ├── CoreBanking.Infrastructure/    # EF Core DbContext, Neon Postgres, PayFast, QuestPDF
+│   └── CoreBanking.API/               # Controllers, SignalR NotificationHub, JWT Auth, Swagger
 ├── tests/
-│   ├── CoreBanking.UnitTests/                 # Unit Tests (xUnit)
-│   └── CoreBanking.IntegrationTests/          # Integration Tests (xUnit)
-│
-└── CoreBanking.Web/                           # React + Vite + TypeScript Frontend
-    ├── index.html                             # Entry HTML with Plus Jakarta Sans & Inter Fonts
-    ├── package.json                           # Dependencies (Tailwind v4, Lucide, Axios)
-    ├── vite.config.ts                         # Vite config with @tailwindcss/vite plugin
-    └── src/
-        ├── index.css                          # Custom CSS variables, scrollbars & animations
-        ├── api/                               # Axios Client setup
-        ├── components/                        # Button, Card, Input, SearchBar, SidebarNav, HeaderTopBar
-        ├── pages/                             # Dashboard, Accounts, Transactions, Loans, Cards, Admin, Support, etc.
-        └── routes/                            # AppRouter & ProtectedRoute Guards
+│   ├── CoreBanking.UnitTests/         # Unit Tests (100% Passed)
+│   └── CoreBanking.IntegrationTests/  # Integration Tests (100% Passed)
+└── CoreBanking.Web/                   # React 18 + Vite + Tailwind v4 Frontend
+    ├── src/
+    │   ├── components/                # NavBar, Card, Input, Button, StatementPdfModal
+    │   ├── context/                   # ThemeContext (Dark/Light mode)
+    │   ├── pages/                     # Dashboard, Accounts, Transactions, Bills, QrPay, Loans, Cards, Admin, Support
+    │   └── routes/                    # AppRouter
 ```
 
 ---
 
 ## 💻 How to Run in Visual Studio Code
 
-### 📋 Prerequisites
-1. **.NET 10 SDK** (v10.0.400 or later)
-2. **Node.js** (v20.x or v22.x) and **npm**
-3. **Visual Studio Code** with extensions:
-   - C# Dev Kit (`ms-dotnettools.csdevkit`)
-   - ES7+ React/Redux/React-Native snippets (`dsznajder.es7-react-js-snippets`)
+### Prerequisites
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- [Node.js v18+](https://nodejs.org/)
 
----
-
-### 🚀 Step 1: Clone the Repository
-Open your VS Code terminal (`Ctrl + ~`) and run:
-```bash
-git clone https://github.com/mhusman123/Enterprise-Banking.git
-cd Enterprise-Banking
+### 1. Run the Backend API (.NET 10)
+Open VS Code terminal:
+```powershell
+dotnet run --project src/CoreBanking.API --urls "http://localhost:5000;https://localhost:5001"
 ```
+- **Live Swagger API**: 👉 **[http://localhost:5000/swagger](http://localhost:5000/swagger)**
 
----
-
-### ⚙️ Step 2: Run the .NET 10 Backend API
-
-1. Open a terminal in VS Code:
-```bash
-dotnet restore CoreBankingPlatform.slnx
-dotnet build CoreBankingPlatform.slnx
-```
-
-2. Run the API project:
-```bash
-dotnet run --project src/CoreBanking.API
-```
-
-3. Open your browser to access the Swagger API Explorer:
-   - **Swagger UI**: [http://localhost:5000/swagger](http://localhost:5000/swagger)
-
----
-
-### 🎨 Step 3: Run the React Frontend
-
-1. Open a **new terminal tab** in VS Code and navigate to `CoreBanking.Web`:
-```bash
+### 2. Run the Frontend (React + Vite)
+Open a second VS Code terminal:
+```powershell
 cd CoreBanking.Web
 npm install
 npm run dev
 ```
-
-2. Open your browser:
-   - **Web App**: [http://localhost:5173](http://localhost:5173)
+- **Live Web App**: 👉 **[http://localhost:5173](http://localhost:5173)**
 
 ---
 
-### 🧪 Step 4: Run Automated Unit & Integration Tests
+## ☁️ Free Cloud Deployment Instructions
 
-In the VS Code terminal from the solution root:
-```bash
-dotnet test CoreBankingPlatform.slnx
-```
+### 🚀 Deploy Backend for FREE (MonsterASP.net / Render / Cloudflare Tunnel)
+1. **MonsterASP.net (NO Credit Card Required)**:
+   - Register free account at [MonsterASP.net](https://www.monsterasp.net).
+   - Publish project: `dotnet publish src/CoreBanking.API/CoreBanking.API.csproj -c Release -o ./publish`.
+   - Zip & upload `./publish` folder via MonsterASP control panel.
+2. **Cloudflare Tunnel (0 Signups)**:
+   - Run `dotnet run --project src/CoreBanking.API --urls "http://localhost:5000"`.
+   - Expose: `npx localtunnel --port 5000` or `cloudflared tunnel --url http://localhost:5000`.
 
----
-
-## 🔧 VS Code Debugging Configuration
-
-Create a `.vscode/launch.json` file in the project root to debug both backend and frontend directly in VS Code:
-
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": ".NET API (Launch)",
-      "type": "coreclr",
-      "request": "launch",
-      "preLaunchTask": "build-api",
-      "program": "${workspaceFolder}/src/CoreBanking.API/bin/Debug/net10.0/CoreBanking.API.dll",
-      "args": [],
-      "cwd": "${workspaceFolder}/src/CoreBanking.API",
-      "stopAtEntry": false,
-      "serverReadyAction": {
-        "action": "openUrl",
-        "pattern": "Now listening on:\\s+(https?://\\S+)",
-        "uriFormat": "%s/swagger"
-      }
-    },
-    {
-      "name": "React Frontend (Chrome)",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:5173",
-      "webRoot": "${workspaceFolder}/CoreBanking.Web/src"
-    }
-  ]
-}
-```
+### ⚡ Deploy Frontend on Vercel
+1. Push repository to GitHub `https://github.com/mhusman123/Enterprise-Banking`.
+2. Import project into [Vercel.com](https://vercel.com).
+3. Set **Root Directory** to `CoreBanking.Web`.
+4. Click **Deploy**.
 
 ---
 
-## 🔮 Roadmap & Coming Soon
+## 🚀 Roadmap & Coming Soon
 
-Here is what we are planning to implement next:
-
-- [ ] **JWT Authentication & Role Claims**: Implement `JwtTokenService` and attach `[Authorize(Roles = "Admin,Teller")]` to API endpoints.
-- [ ] **Database Migrations**: Execute EF Core migrations (`dotnet ef database update`) against local or cloud SQL Server instance.
-- [ ] **Full Handler Logic**: Implement CQRS command handlers to perform atomic balance updates using EF Core database transactions.
-- [ ] **SignalR Real-Time Alerts**: Broadcast instant push notifications to the React frontend whenever a deposit or wire transfer settles.
-- [ ] **Docker & Docker Compose**: Package API and React Web app into multi-container Docker images with SQL Server & Redis.
-- [ ] **Redis Caching**: Add Distributed Cache for daily currency exchange rates and stock tickers.
+- [x] Full Pakistani Rupee (`PKR`) & SBP IBAN Localization
+- [x] Utility Bill Payments & Mobile Load (`/bills`)
+- [x] Raast QR Code Scanner & Merchant Checkout (`/qr-pay`)
+- [x] Official SBP Stamped PDF Statement Generator
+- [x] Dark / Light Mode Theme Switcher
+- [x] Neon PostgreSQL Cloud Database Integration
+- [x] PayFast & 1-Link Sandbox Integration
+- [x] JWT Authentication & Role Permissions
+- [x] SignalR Real-time Notification Hub
+- [x] QuestPDF Document Engine
+- [ ] Live Biometric NADRA Verification Simulation
+- [ ] Multi-Bank Open API Interoperability (HBL, Meezan, ABL)
 
 ---
 
-## 📜 License
-
-This project is open-source under the [MIT License](LICENSE).
+## 📄 License
+Distributed under the **MIT License**. See `LICENSE` for more information.
