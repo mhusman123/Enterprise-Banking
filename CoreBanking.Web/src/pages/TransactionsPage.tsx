@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import { 
   Send, 
   Search, 
-  FileSpreadsheet
+  FileText
 } from 'lucide-react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import { StatementPdfModal } from '../components/StatementPdfModal';
 
 const TransactionsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [showTransferModal, setShowTransferModal] = useState(false);
+  const [showPdfModal, setShowPdfModal] = useState(false);
   const [transferType, setTransferType] = useState<'wire' | 'deposit' | 'withdraw'>('wire');
 
   const allLedger = [
@@ -36,22 +38,23 @@ const TransactionsPage: React.FC = () => {
   });
 
   return (
-    <div className="space-y-8 animate-fade">
+    <div className="space-y-8 animate-fade dark:text-slate-100">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow transition-colors">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Transaction Ledger (PKR)</h1>
-          <p className="text-xs text-slate-500 mt-1">Audit-grade records of all Raast, interbank & wire transfers</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Transaction Ledger (PKR)</h1>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Audit-grade records of all Raast, interbank & wire transfers</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm">
-            <FileSpreadsheet size={15} /> Export CSV
+          <Button variant="outline" size="sm" onClick={() => setShowPdfModal(true)}>
+            <FileText size={15} /> Official Statement (PDF)
           </Button>
           <Button size="sm" onClick={() => setShowTransferModal(true)}>
             <Send size={15} /> New Transfer
           </Button>
         </div>
       </div>
+      <StatementPdfModal isOpen={showPdfModal} onClose={() => setShowPdfModal(false)} />
 
       {/* Table Card */}
       <Card className="p-0 overflow-hidden">

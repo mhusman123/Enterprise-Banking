@@ -10,18 +10,21 @@ import ForgotPasswordPage from '../pages/ForgotPasswordPage';
 import DashboardPage from '../pages/DashboardPage';
 import AccountsPage from '../pages/AccountsPage';
 import TransactionsPage from '../pages/TransactionsPage';
+import BillsPage from '../pages/BillsPage';
+import QrPayPage from '../pages/QrPayPage';
 import LoansPage from '../pages/LoansPage';
 import CardsPage from '../pages/CardsPage';
 import SupportPage from '../pages/SupportPage';
 import AdminPage from '../pages/AdminPage';
 
 import { SidebarNav, HeaderTopBar } from '../components/NavBar';
+import { ThemeProvider } from '../context/ThemeContext';
 
 const MainLayout: React.FC = () => {
   const [isMobileOpen, setIsMobileOpen] = React.useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex transition-colors">
       <SidebarNav isMobileOpen={isMobileOpen} onCloseMobile={() => setIsMobileOpen(false)} />
       <div className="flex-1 flex flex-col min-w-0">
         <HeaderTopBar onOpenMobileMenu={() => setIsMobileOpen(true)} />
@@ -37,24 +40,28 @@ const MainLayout: React.FC = () => {
 
 const AppRouter: React.FC = () => {
   return (
-    <Routes>
-      {/* Public Routes - No NavBar */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+    <ThemeProvider>
+      <Routes>
+        {/* Public Routes - No NavBar */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-      {/* Protected Routes - With NavBar */}
-      <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/accounts" element={<AccountsPage />} />
-        <Route path="/transactions" element={<TransactionsPage />} />
-        <Route path="/loans" element={<LoansPage />} />
-        <Route path="/cards" element={<CardsPage />} />
-        <Route path="/support" element={<SupportPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-      </Route>
-    </Routes>
+        {/* Protected Routes - With NavBar */}
+        <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/accounts" element={<AccountsPage />} />
+          <Route path="/transactions" element={<TransactionsPage />} />
+          <Route path="/bills" element={<BillsPage />} />
+          <Route path="/qr-pay" element={<QrPayPage />} />
+          <Route path="/loans" element={<LoansPage />} />
+          <Route path="/cards" element={<CardsPage />} />
+          <Route path="/support" element={<SupportPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 };
 

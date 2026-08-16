@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
@@ -16,9 +16,16 @@ import {
   PlusCircle,
   ShieldCheck,
   Building2,
-  ChevronRight
+  ChevronRight,
+  Zap,
+  QrCode,
+  Sun,
+  Moon,
+  FileText
 } from 'lucide-react';
 import Button from './Button';
+import { useTheme } from '../context/ThemeContext';
+import { StatementPdfModal } from './StatementPdfModal';
 
 export const SidebarNav: React.FC<{ isMobileOpen?: boolean; onCloseMobile?: () => void }> = ({ 
   isMobileOpen = false, 
@@ -31,6 +38,8 @@ export const SidebarNav: React.FC<{ isMobileOpen?: boolean; onCloseMobile?: () =
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { name: 'Accounts', path: '/accounts', icon: Wallet },
     { name: 'Transactions', path: '/transactions', icon: ArrowLeftRight },
+    { name: 'Bills & Top-up', path: '/bills', icon: Zap },
+    { name: 'Raast QR Pay', path: '/qr-pay', icon: QrCode },
     { name: 'Loans & EMI', path: '/loans', icon: Landmark },
     { name: 'Cards', path: '/cards', icon: CreditCard },
   ];
@@ -181,12 +190,16 @@ export const SidebarNav: React.FC<{ isMobileOpen?: boolean; onCloseMobile?: () =
 export const HeaderTopBar: React.FC<{ onOpenMobileMenu?: () => void }> = ({ onOpenMobileMenu }) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
+  const [showPdfModal, setShowPdfModal] = useState(false);
 
   const getPageTitle = (path: string) => {
     switch (path) {
       case '/dashboard': return { title: 'Overview & Analytics', subtitle: 'Real-time account liquidity & summary' };
       case '/accounts': return { title: 'Bank Accounts', subtitle: 'Manage checking, savings & deposit accounts' };
       case '/transactions': return { title: 'Transaction Ledger', subtitle: 'Comprehensive audit trail of funds transfer' };
+      case '/bills': return { title: 'Bills & Mobile Load', subtitle: 'Pay K-Electric, Sui Gas, PTCL & Jazz/Telenor top-ups' };
+      case '/qr-pay': return { title: 'Raast QR Code Pay', subtitle: 'Scan & pay merchant QR codes instantly' };
       case '/loans': return { title: 'Loans & Financing', subtitle: 'Active credit lines, EMI calculations & schedules' };
       case '/cards': return { title: 'Payment Cards', subtitle: 'Virtual & physical debit/credit card controls' };
       case '/admin': return { title: 'Admin & Audit Logs', subtitle: 'System administration & compliance records' };
@@ -198,50 +211,70 @@ export const HeaderTopBar: React.FC<{ onOpenMobileMenu?: () => void }> = ({ onOp
   const currentInfo = getPageTitle(location.pathname);
 
   return (
-    <header className="sticky top-0 z-20 bg-white/90 backdrop-blur-md border-b border-slate-200/80 px-6 py-4 flex items-center justify-between gap-4 card-shadow">
-      <div className="flex items-center gap-4 min-w-0">
-        <button 
-          onClick={onOpenMobileMenu}
-          className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors"
-        >
-          <Menu size={22} />
-        </button>
-        <div className="min-w-0">
-          <h1 className="text-xl font-bold text-slate-900 tracking-tight truncate">{currentInfo.title}</h1>
-          <p className="text-xs text-slate-500 hidden sm:block truncate">{currentInfo.subtitle}</p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-3 shrink-0">
-        {/* Quick Search */}
-        <div className="relative hidden md:block w-64">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search account, reference..."
-            className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400"
-          />
+    <>
+      <header className="sticky top-0 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 px-6 py-4 flex items-center justify-between gap-4 card-shadow transition-colors">
+        <div className="flex items-center gap-4 min-w-0">
+          <button 
+            onClick={onOpenMobileMenu}
+            className="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            <Menu size={22} />
+          </button>
+          <div className="min-w-0">
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight truncate">{currentInfo.title}</h1>
+            <p className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block truncate">{currentInfo.subtitle}</p>
+          </div>
         </div>
 
-        {/* Quick Action Transfer */}
-        <Button size="sm" onClick={() => navigate('/transactions')}>
-          <PlusCircle size={15} />
-          <span className="hidden sm:inline">Transfer Money</span>
-        </Button>
+        <div className="flex items-center gap-3 shrink-0">
+          {/* Quick Search */}
+          <div className="relative hidden md:block w-56">
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search account, reference..."
+              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder:text-slate-400 text-slate-900 dark:text-white"
+            />
+          </div>
 
-        {/* Notifications */}
-        <button className="relative p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors">
-          <Bell size={19} />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-blue-600 ring-2 ring-white"></span>
-        </button>
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+            className="p-2.5 rounded-xl text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
+          >
+            {theme === 'light' ? <Moon size={18} className="text-slate-700" /> : <Sun size={18} className="text-amber-400" />}
+          </button>
 
-        {/* Live Badge */}
-        <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80 text-xs font-semibold">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Live Node</span>
+          {/* Download Official PDF Statement Button */}
+          <Button variant="outline" size="sm" onClick={() => setShowPdfModal(true)} className="hidden sm:inline-flex">
+            <FileText size={15} />
+            <span>PDF Statement</span>
+          </Button>
+
+          {/* Quick Action Transfer */}
+          <Button size="sm" onClick={() => navigate('/transactions')}>
+            <PlusCircle size={15} />
+            <span className="hidden sm:inline">Transfer Money</span>
+          </Button>
+
+          {/* Notifications */}
+          <button className="relative p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <Bell size={19} />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-blue-600 ring-2 ring-white dark:ring-slate-900"></span>
+          </button>
+
+          {/* Live Badge */}
+          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800 text-xs font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Live Node</span>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* PDF Statement Modal */}
+      <StatementPdfModal isOpen={showPdfModal} onClose={() => setShowPdfModal(false)} />
+    </>
   );
 };
 
