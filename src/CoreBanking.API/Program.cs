@@ -53,11 +53,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// EF Core: Neon PostgreSQL OR In-Memory / SqlServer fallback
-var postgresConnectionString = builder.Configuration.GetConnectionString("NeonPostgres") 
-                            ?? builder.Configuration.GetConnectionString("DefaultConnection");
+// EF Core: Neon PostgreSQL Database Connection
+var postgresConnectionString = builder.Configuration.GetConnectionString("NeonPostgres");
 
-if (!string.IsNullOrWhiteSpace(postgresConnectionString) && postgresConnectionString.Contains("postgres", StringComparison.OrdinalIgnoreCase))
+if (!string.IsNullOrWhiteSpace(postgresConnectionString))
 {
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseNpgsql(postgresConnectionString));
@@ -120,6 +119,23 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+// Auto-migrate EF Core database on startup if Neon PostgreSQL is configured
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetService<ApplicationDbContext>();
+    if (dbContext != null && dbContext.Database.IsNpgsql())
+    {
+        try
+        {
+            dbContext.Database.EnsureCreated();
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Failed to apply automatic Neon PostgreSQL database initialization");
+        }
+    }
+}
 
 // Middleware pipeline
 app.UseMiddleware<ExceptionHandlingMiddleware>();
