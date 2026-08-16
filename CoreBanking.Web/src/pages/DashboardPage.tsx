@@ -33,21 +33,21 @@ const DashboardPage: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8 animate-fade">
+    <div className="space-y-8 animate-fade dark:text-slate-100">
       {/* Top Welcome Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow transition-colors">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg">
+          <div className="w-12 h-12 rounded-2xl bg-blue-50 dark:bg-slate-800 border border-blue-100 dark:border-slate-700 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-lg">
             MU
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Welcome back, Muhammad Usman</h1>
-              <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Welcome back, Muhammad Usman</h1>
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
                 <ShieldCheck size={12} /> Verified SBP
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">Corporate Banking Portal • CNIC #42101-9876543-1 • Account #CB-8849-PK</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Corporate Banking Portal • CNIC #42101-9876543-1 • Account #CB-8849-PK</p>
           </div>
         </div>
 

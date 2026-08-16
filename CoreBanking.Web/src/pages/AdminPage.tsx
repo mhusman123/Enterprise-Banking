@@ -22,15 +22,15 @@ const AdminPage: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8 animate-fade">
+    <div className="space-y-8 animate-fade dark:text-slate-100">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow transition-colors">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">System Admin & Compliance Console</h1>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">RESTRICTED ROLE</span>
+            <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">System Admin & Compliance Console</h1>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 dark:bg-rose-950 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800">RESTRICTED ROLE</span>
           </div>
-          <p className="text-xs text-slate-500 mt-1">Platform liquidity monitoring, customer account oversight & security audit logs</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Platform liquidity monitoring, customer account oversight & security audit logs</p>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="outline" size="sm">

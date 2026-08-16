@@ -60,12 +60,12 @@ const LoansPage: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-8 animate-fade">
+    <div className="space-y-8 animate-fade dark:text-slate-100">
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 card-shadow">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 card-shadow transition-colors">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Loans & Commercial Financing (Pakistan)</h1>
-          <p className="text-xs text-slate-500 mt-1">SBP compliant credit lines, KIBOR benchmarked mortgages & EMI schedules</p>
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Loans & Commercial Financing (Pakistan)</h1>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">SBP compliant credit lines, KIBOR benchmarked mortgages & EMI schedules</p>
         </div>
         <div className="flex items-center gap-3">
           <Button variant="outline" size="sm">
